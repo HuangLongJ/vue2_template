@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "types": ["@dcloudio/types", "miniprogram-api-typings", "mini-types"],
+    "jsx": "preserve"
+  },
+  "include": ["src/**/*", "vue.config.js", "vue.config.js"],
+  "exclude": ["node_modules"]
+}

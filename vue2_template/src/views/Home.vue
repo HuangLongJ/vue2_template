@@ -8,8 +8,8 @@
 
 <template>
   <div>
-    <div>{{ user.count }}</div>
-    <el-button type="primary" size="default" @click="add"> +1 </el-button>
+    <!-- <div>{{ user.count }}</div>
+    <el-button type="primary" size="default" @click="add"> +1 </el-button> -->
   </div>
 </template>
 

@@ -1,0 +1,10 @@
+build/*.js
+public
+node_modules
+prettierrc
+.eslintrc.json
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
