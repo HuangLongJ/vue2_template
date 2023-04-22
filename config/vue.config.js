@@ -23,6 +23,7 @@ module.exports = {
     entry.add('babel-polyfill').end();
     entry.add('classlist-polyfill').end();
     config.optimization.minimize(true);
+    config.plugins.delete('prefetch');
     // config.optimization = {
     //   runtimeChunk: {
     //     name: "manifest",
