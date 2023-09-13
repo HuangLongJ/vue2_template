@@ -1,20 +1,16 @@
-<!--
-* @描述:
-* @姓名: HuangLongJun
-* @时间: 2022-12-19 14:28:30
-* @最后修改时间: 2022-12-19 14:28:30
-* @最后修改人: HuangLongJun
--->
-
 <template>
-  <div>
-    <!-- <div>{{ user.count }}</div>
-    <el-button type="primary" size="default" @click="add"> +1 </el-button> -->
+  <div class="project-container">
+    <el-container>
+      <el-header>头部</el-header>
+      <el-container>
+        <el-aside width="200px">雷彪</el-aside>
+        <el-main>主体</el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
 export default {
   name: "Home",
   components: {},
@@ -23,20 +19,12 @@ export default {
     return {};
   },
   created() {},
-  mounted() {
-    this.init();
-  },
-  destroyed() {},
-  computed: {
-    ...mapState(["user"]),
-    ...mapGetters(["getCount"]),
-  },
-  methods: {
-    init() {},
-    add() {
-      this.$store.dispatch("setCount", 1);
-    },
-  },
+  computed: {},
+  methods: {},
 };
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.project-container {
+  min-height: calc(100vh - 10px);
+}
+</style>

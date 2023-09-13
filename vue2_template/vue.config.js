@@ -3,9 +3,6 @@
  * https://cli.vuejs.org/zh/config/
  */
 
-//
-const url = "https://oa-test.oafoodism.cc";
-
 const CompressionWebpackPlugin = require("compression-webpack-plugin"); // 压缩插件
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin"); // 打包速度分析
 const productionGzipExtensions = ["js", "css"];
@@ -68,22 +65,22 @@ module.exports = {
     };
   },
   // 配置转发代理
-  devServer: {
-    inline: true,
-    disableHostCheck: true,
-    port: 8080,
-    https: true,
-    proxy: {
-      "/": {
-        target: url,
-        logLevel: "debug",
-        changeOrigin: true,
-        secure: false,
-        ws: true, // 需要websocket 开启
-        pathRewrite: {
-          "^/": "",
-        },
-      },
-    },
-  },
+  // devServer: {
+  //   inline: true,
+  //   // disableHostCheck: true,
+  //   port: 8080,
+  //   https: true,
+  //   // proxy: {
+  //   //   "/": {
+  //   //     target: url,
+  //   //     logLevel: "debug",
+  //   //     changeOrigin: true,
+  //   //     secure: false,
+  //   //     ws: true, // 需要websocket 开启
+  //   //     pathRewrite: {
+  //   //       "^/": "",
+  //   //     },
+  //   //   },
+  //   // },
+  // },
 };

@@ -4,15 +4,10 @@ import router from "./router";
 import Element from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import store from "@/store";
-import Avue from "@smallwei/avue";
-import "@smallwei/avue/lib/index.css";
 import axios from "axios";
 
-Vue.use(Avue, { axios });
-
 Vue.use(Element);
-
-window.axios = axios;
+Vue.use(axios);
 
 Vue.config.productionTip = false;
 
