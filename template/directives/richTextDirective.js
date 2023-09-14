@@ -17,11 +17,11 @@ function toShadowDom (el, htmlText, styleText = '') {
 
 function handleBindingVal (binding) {
   let htmlText, styleText
-  if (typeof binding.value === 'object') {
-    htmlText = binding.value.htmlText
-    styleText = binding.value.styleText
+  if (binding.value !== null && binding.value !== undefined && typeof binding.value === 'object') {
+    htmlText = binding.value.htmlText || ''
+    styleText = binding.value.styleText || ''
   } else {
-    htmlText = binding.value
+    htmlText = binding.value || ''
   }
   return { htmlText, styleText }
 }
