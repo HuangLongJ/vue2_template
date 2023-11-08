@@ -1,66 +1,34 @@
+const express = require('express');
+const routes = require('./routes');
 
-var xlsx = require('node-xlsx');
-var fs = require('fs');
- 
-function writeExcel(){
-    //写入Excel数据
-try{
-    //excel数据
-    var excelData = [];
-    //表1
-    {
-        //添加数据
-        var addInfo = {};
-        //名称
-        addInfo.name = "用户表";
-        //数据数组
-        addInfo.data = [
-            ["用户ID", "用户昵称", "用户性别", "用户年龄"],
-        ];
- 
-        //添加数据
-        addInfo.data.push([10000,"张三","男",15]);
-        addInfo.data.push([10001,"李四","男",40]);
- 
-        //添加数据
-        excelData.push(addInfo);
-    }
- 
-    //表2
-    {
-        //添加数据
-        var addInfo = {};
-        //名称
-        addInfo.name = "部门表";
-        //数据数组
-        addInfo.data = [
-            ["部门ID", "部门名称"],
-        ];
- 
-        //添加数据
-        addInfo.data.push([10000,"技术部"]);
-        addInfo.data.push([10001,"财务部"]);
- 
-        //添加数据
-        excelData.push(addInfo);
-    }
-    
-    // 写xlsx
-    var buffer = xlsx.build(excelData);
-    //写入数据
-    fs.writeFile('./data.xls', buffer, function (err) {
-        if (err)
-        {
-            throw err;
-        }
-        //输出日志
-        console.log('Write to xls has finished');
-    });
-}
-catch(e){
-    //输出日志
-    console.log("excel写入异常,error=%s", e.stack);
-}
+const app = express()
 
-}
-writeExcel()
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
+routes(app)
+
+app.get('/',(req, res)=> {
+    res.send('hello world')
+})
+
+app.post('/',(req,res)=>{
+    console.log('请求体',req.body)
+    res.status(201).send()
+})
+
+app.put('/:id',(req,res)=>{
+    console.log('修改',req.params.id)
+    console.log('请求体',req.body)
+    res.send()
+})
+app.delete('/:id',(req,res)=>{
+    console.log('删除',req.params.id)
+    res.status(204).send()
+})
+
+
+const port = 3000
+app.listen(port, () => {
+    console.log(`Server is running: http://localhost:${port}`)
+})
