@@ -1,4 +1,9 @@
-const post = require('./post.js');
+const fs = require('fs');
 module.exports = (app) => {
-    app.use('/post', post)
+    const routeFiles = fs.readdirSync('./routes');
+    for (fileName of routeFiles) {
+        if (fileName === 'index.js') continue
+        const router = require(`./${fileName}`)
+        app.use(`/${fileName}`, router)
+    }
 }

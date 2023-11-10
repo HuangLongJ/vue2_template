@@ -20,5 +20,4 @@ route.delete('/:id', (req, res) => {
     console.log('删除', req.params.id)
     res.status(204).send()
 })
-
 module.exports = route
