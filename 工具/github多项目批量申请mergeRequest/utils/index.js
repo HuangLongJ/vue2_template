@@ -1,4 +1,7 @@
 import XLSX from 'xlsx';
+import { join } from 'path';
+import { homedir } from 'os';
+
 
 const readFile = (filePath) => {
     const workbook = XLSX.readFile(filePath);
@@ -35,8 +38,12 @@ const writeFile = (newData) => {
     // 将Worksheet添加到Workbook
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
 
+    // 桌面生成
+    const desktopPath = join(homedir(), 'Desktop');
+    const filePath = join(desktopPath, 'result.xlsx');
+
     // 将Workbook写入新的Excel文件
-    XLSX.writeFile(wb, 'result.xlsx');
+    XLSX.writeFile(wb, filePath);
 
     console.log('新的Excel文件已成功生成！');
 }
