@@ -46,7 +46,7 @@ mergeRequestsStatus.forEach((result, index) => {
     if (result.status === 'fulfilled') {
         console.log(`${xlsxData[index].name}-----success`)
         xlsxData[index].merge_url = result.value.web_url
-        xlsxData[index].merge_status = result.value.merge_status === 'cannot_be_merged' ? '有冲突' : '无冲突'
+        xlsxData[index].merge_status = result.value.merge_status === 'cannot_be_merged' ? '有冲突/已合并,请手动检查' : '无冲突'
     } else if (result.status === 'rejected') {
         console.log(`${xlsxData[index].name}-----fail`)
         xlsxData[index].merge_url = JSON.stringify(result.reason)
@@ -64,11 +64,11 @@ setMergeRequests.forEach((result, index) => {
         if (result.value === 'none') return
         const item = result.value.find(item => item.source_branch === xlsxData[index].source_branch)
         xlsxData[index].merge_url = item.web_url
-        xlsxData[index].merge_status = item.merge_status === 'cannot_be_merged' ? '有冲突' : '无冲突'
+        xlsxData[index].merge_status = item.merge_status === 'cannot_be_merged' ? '有冲突/已合并,请手动检查' : '无冲突'
     } else if (result.status === 'rejected') {
         console.log(`${xlsxData[index].name}-----fail`)
     }
 })
 
 console.log('------合并Merge Request列表数据成功------')
-writeFile(xlsxData)
+writeFile('./快速生成mergeRequest合并.xlsx', xlsxData)
