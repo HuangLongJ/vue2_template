@@ -1,7 +1,7 @@
 import { readFile, writeFile } from './utils/index.js';
 import { getProjects, mergeRequests, getBannerCommits } from './api/index.js';
 
-const xlsxData = readFile('./模板.xlsx')
+const xlsxData = readFile('./快速生成mergeRequest合并.xlsx')
 // 获取项目id
 const projectsData = await Promise.allSettled(xlsxData.map(item => getProjects({ search: item.name })))
 // 写入数据
