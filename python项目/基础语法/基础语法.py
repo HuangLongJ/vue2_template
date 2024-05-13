@@ -28,3 +28,8 @@
 # print(eval()) # eval 字符串转成对象
 # print(tuple()) # tuple转换成元组
 # print(list()) # list转换成列表
+
+vec1 = [1, 2, 3]
+vec2 = [4, 5, 6]
+for i in range(5):
+    print(i)
