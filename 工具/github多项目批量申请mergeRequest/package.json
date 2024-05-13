@@ -2,7 +2,8 @@
   "name": "githu-merge-request",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "dev": "nodemon ./main.js",
+    "start": "node ./main.js"
   },
   "type": "module",
   "main": "main.js",

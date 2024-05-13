@@ -1,5 +1,5 @@
 import { readFile, writeFile } from './utils/index.js';
-import { getProjects, mergeRequests, getBannerCommits } from './api/index.js';
+import { getProjects, mergeRequests, getBannerCommits, getMergeRequests } from './api/index.js';
 
 const xlsxData = readFile('./快速生成mergeRequest合并.xlsx')
 // 获取项目id
@@ -31,7 +31,7 @@ bannerData.forEach((result, index) => {
     }
 })
 console.log('------获取合并信息成功------')
-// 创建merage
+// 创建merge
 const mergeRequestsStatus = await Promise.allSettled(xlsxData.map(item => {
     return item.id !== 'none' ? mergeRequests(item.id, {
         source_branch: item.source_branch,
@@ -40,19 +40,31 @@ const mergeRequestsStatus = await Promise.allSettled(xlsxData.map(item => {
         description: item.message
     }) : Promise.reject({ reason: '无项目id' })
 }
-
-
-
 ))
+ await setMergeUrl()
 // 写入数据
-mergeRequestsStatus.forEach((result, index) => {
-    if (result.status === 'fulfilled') {
-        console.log(`${xlsxData[index].name}-----success`)
-        xlsxData[index].merge_url = result.value.web_url
-    } else if (result.status === 'rejected') {
-        console.log(`${xlsxData[index].name}-----fail`)
-        xlsxData[index].merge_url = JSON.stringify(result.reason)
+async function setMergeUrl () {
+    for (let index = 0; index < mergeRequestsStatus.length; index++) {
+        const result = mergeRequestsStatus[index]
+        if (result.status === 'fulfilled') {
+            console.log(`${xlsxData[index].name}-----success`)
+            xlsxData[index].merge_url = result.value.web_url
+        } else if (result.status === 'rejected') {
+            // 已创建的merge request
+            const str = 'This merge request already exists'
+            if (result.reason[0].includes(str)) {
+                const data = await getMergeRequests(xlsxData[index].id)
+                const web_url = data.find(item => item.source_branch === xlsxData[index].source_branch).web_url
+                console.log(web_url)
+                xlsxData[index].merge_url = web_url
+                console.log(`${xlsxData[index].name}-----success`)
+                return
+            }
+            console.log(`${xlsxData[index].name}-----fail`)
+            xlsxData[index].merge_url = JSON.stringify(result.reason)
+        }
+
     }
-})
+}
 console.log('------创建合并Merge Request成功------')
 writeFile(xlsxData)

@@ -14,7 +14,6 @@ export function mergeRequests (projectId, data) {
         data
     });
 }
-// ref_name=tapd_1033812_copywrite
 export function getBannerCommits (projectId, params) {
     return request({
         url: `/api/v4/projects/${projectId}/repository/commits`,
@@ -22,5 +21,12 @@ export function getBannerCommits (projectId, params) {
         params
     });
 }
+export function getMergeRequests (projectId) {
+    return request({
+        url: `/api/v4/projects/${projectId}/merge_requests`,
+        method: "get",
+        params: { state: 'opened', }
+    });
+}
 
-// /api/v4/projects/${projectId}/merge_requests
+

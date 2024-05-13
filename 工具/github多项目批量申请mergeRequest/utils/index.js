@@ -1,6 +1,7 @@
 import XLSX from 'xlsx';
 import { join } from 'path';
 import { homedir } from 'os';
+import { writeFileSync } from 'fs';
 
 
 const readFile = (filePath) => {
@@ -47,5 +48,26 @@ const writeFile = (newData) => {
 
     console.log('新的Excel文件已成功生成！');
 }
+
+const writeFile1 = (newData) => {
+    newData.forEach(item => {
+      delete item.id;
+      delete item.title;
+      delete item.message;
+    });
+  
+    // 将数据转换为文本格式
+    const textData = newData.map(item => JSON.stringify(item)).join('\n');
+  
+    // 桌面生成
+    const desktopPath = join(homedir(), 'Desktop');
+    const filePath = join(desktopPath, 'result.txt');
+  
+    // 将文本数据写入文件
+    writeFileSync(filePath, textData);
+  
+    console.log('新的文本文件已成功生成！');
+  };
+
 
 export { readFile, writeFile }
