@@ -15,7 +15,7 @@ projectsData.forEach((result, index) => {
         throw new Error(xlsxData[index].name + '获取项目数据失败')
     }
 })
-console.log('------获取项目成功------')
+console.log('------获取项目信息成功------')
 // 获取项目分支信息
 const bannerData = await Promise.allSettled(xlsxData.map(item => item.id !== 'none' ? getBannerCommits(item.id, { ref_name: item.source_branch }) : Promise.reject([{ id: 'none', title: '无参数', message: '无参数', }])))
 // 写入数据
@@ -30,7 +30,7 @@ bannerData.forEach((result, index) => {
         throw new Error(xlsxData[index].name + '获取分支数据失败')
     }
 })
-console.log('------获取合并信息成功------')
+console.log('------获取分支信息成功------')
 // 创建merge
 const mergeRequestsStatus = await Promise.allSettled(xlsxData.map(item => {
     return item.id !== 'none' ? mergeRequests(item.id, {
@@ -41,30 +41,34 @@ const mergeRequestsStatus = await Promise.allSettled(xlsxData.map(item => {
     }) : Promise.reject({ reason: '无项目id' })
 }
 ))
- await setMergeUrl()
-// 写入数据
-async function setMergeUrl () {
-    for (let index = 0; index < mergeRequestsStatus.length; index++) {
-        const result = mergeRequestsStatus[index]
-        if (result.status === 'fulfilled') {
-            console.log(`${xlsxData[index].name}-----success`)
-            xlsxData[index].merge_url = result.value.web_url
-        } else if (result.status === 'rejected') {
-            // 已创建的merge request
-            const str = 'This merge request already exists'
-            if (result.reason[0].includes(str)) {
-                const data = await getMergeRequests(xlsxData[index].id)
-                const web_url = data.find(item => item.source_branch === xlsxData[index].source_branch).web_url
-                console.log(web_url)
-                xlsxData[index].merge_url = web_url
-                console.log(`${xlsxData[index].name}-----success`)
-                return
-            }
-            console.log(`${xlsxData[index].name}-----fail`)
-            xlsxData[index].merge_url = JSON.stringify(result.reason)
-        }
-
+// 写入merge结果
+mergeRequestsStatus.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+        console.log(`${xlsxData[index].name}-----success`)
+        xlsxData[index].merge_url = result.value.web_url
+        xlsxData[index].merge_status = result.value.merge_status === 'cannot_be_merged' ? '有冲突' : '无冲突'
+    } else if (result.status === 'rejected') {
+        console.log(`${xlsxData[index].name}-----fail`)
+        xlsxData[index].merge_url = JSON.stringify(result.reason)
     }
+})
+console.log('------创建合并信息成功------')
+const setMergeRequests = await Promise.allSettled(xlsxData.map((item, index) => {
+    const str = 'This merge request already exists'
+    return item.merge_url.includes(str) ? getMergeRequests(xlsxData[index].id) : 'none'
 }
-console.log('------创建合并Merge Request成功------')
+))
+setMergeRequests.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+        console.log(`${xlsxData[index].name}-----success`)
+        if (result.value === 'none') return
+        const item = result.value.find(item => item.source_branch === xlsxData[index].source_branch)
+        xlsxData[index].merge_url = item.web_url
+        xlsxData[index].merge_status = item.merge_status === 'cannot_be_merged' ? '有冲突' : '无冲突'
+    } else if (result.status === 'rejected') {
+        console.log(`${xlsxData[index].name}-----fail`)
+    }
+})
+
+console.log('------合并Merge Request列表数据成功------')
 writeFile(xlsxData)

@@ -28,9 +28,9 @@ const writeFile = (newData) => {
     if (!ws['!cols']) ws['!cols'] = [];
     ws['!cols'] = [
         { wpx: 300 },
+        { wpx: 150 },
+        { wpx: 150 },
         { wpx: 200 },
-        { wpx: 200 },
-        { wpx: 100 },
         { wpx: 200 },
         { wpx: 200 },
         { wpx: 200 },
