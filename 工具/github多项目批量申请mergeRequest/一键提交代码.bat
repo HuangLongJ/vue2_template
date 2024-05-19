@@ -16,6 +16,6 @@ REM 提交暂存区的修改
 git commit -m "Auto commit changes"
 
 REM 推送到远程仓库
-git push origin master
+git push origin production
 
 echo "代码已成功暂存、提交并推送到远程仓库"
