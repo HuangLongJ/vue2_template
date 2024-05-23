@@ -1,17 +1,27 @@
 function toShadowDom (el, htmlText, styleText = '') {
-  let shadowRoot
-  if (el.__vue_shadow_root__) {
-    shadowRoot = el.__vue_shadow_root__
+  // 判断是否支持 attachShadow 方法
+  if (!el.attachShadow) {
+    el.innerHTML = htmlText
+    if (styleText) {
+      const style = document.createElement('style')
+      style.textContent = styleText
+      el.appendChild(style)
+    }
   } else {
-    shadowRoot = el.attachShadow({ mode: 'closed' })
-    el.__vue_shadow_root__ = shadowRoot
-  }
-  shadowRoot.innerHTML = htmlText
-  if (styleText) {
-    // 给富文本添加样式
-    const style = document.createElement('style')
-    style.textContent = styleText
-    shadowRoot.appendChild(style)
+    let shadowRoot
+    if (el.__vue_shadow_root__) {
+      shadowRoot = el.__vue_shadow_root__
+    } else {
+      shadowRoot = el.attachShadow({ mode: 'closed' })
+      el.__vue_shadow_root__ = shadowRoot
+    }
+    shadowRoot.innerHTML = htmlText
+    if (styleText) {
+      // 给富文本添加样式
+      const style = document.createElement('style')
+      style.textContent = styleText
+      shadowRoot.appendChild(style)
+    }
   }
 }
 
