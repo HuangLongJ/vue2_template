@@ -15,7 +15,7 @@
 import mainContent from './components/mainContent.vue';
 import introduceOne from './components/introduceOne.vue';
 import introduceTwo from './components/introduceTwo.vue';
-import introduceThree from './components/introduceThree.vue';
+import introduceThree from './components/introduceThree';
 export default {
   name: 'homePage',
   layout: 'App',
