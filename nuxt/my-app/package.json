@@ -1,0 +1,52 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "longjun.huang@jingdigital.com"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
+    "cookie-universal-nuxt": "^2.2.2",
+    "core-js": "^3.25.3",
+    "element-ui": "^2.15.10",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.15.8",
+    "swiper": "^5.4.5",
+    "vue": "^2.7.10",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-i18n": "^8.28.2",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@nuxt/babel-preset-app": "^2.18.1",
+    "@nuxtjs/style-resources": "^1.2.2",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-pxtorem": "^6.1.0",
+    "sass": "1.23.0",
+    "sass-loader": "^10.4.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}

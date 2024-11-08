@@ -1,7 +1,10 @@
 import { readFile, writeFile } from './utils/index.js';
-import { getProjects, mergeRequests, getBannerCommits, getMergeRequests } from './api/index.js';
+import { getProjects, mergeRequests, getBannerCommits, getMergeRequests, getCreatedBanner } from './api/index.js';
 
 const xlsxData = readFile('./快速生成mergeRequest合并.xlsx')
+// const xlsxData = [
+//     { name: 'applicationMarket-microProject-app', branch: 'wanda', ref: 'master' }
+// ]
 // 获取项目id
 const projectsData = await Promise.allSettled(xlsxData.map(item => getProjects({ search: item.name })))
 // 写入数据
@@ -16,12 +19,27 @@ projectsData.forEach((result, index) => {
     }
 })
 console.log('------获取项目信息成功------')
+// // 创建分支方法
+// const createdBannerData = await Promise.allSettled(xlsxData.map(item => item.id !== 'none' ? getCreatedBanner(item.id, { branch: item.branch, ref: item.ref }) : Promise.reject([{ id: 'none', title: '无参数', message: '无参数', }])))
+// createdBannerData.forEach((result, index) => {
+//     if (result.status === 'fulfilled') {
+//         console.log(`${xlsxData[index].name}-----success`)
+//     } else if (result.status === 'rejected') {
+//         if (result.reason === "Branch already exists") {
+//             console.log(`${xlsxData[index].name}-----success`)
+//             return
+//         }
+//         console.log(`${xlsxData[index].name}-----fail`)
+//         throw new Error(xlsxData[index].name + '获取分支数据失败')
+//     }
+// })
 // 获取项目分支信息
 const bannerData = await Promise.allSettled(xlsxData.map(item => item.id !== 'none' ? getBannerCommits(item.id, { ref_name: item.source_branch }) : Promise.reject([{ id: 'none', title: '无参数', message: '无参数', }])))
 // 写入数据
 bannerData.forEach((result, index) => {
     if (result.status === 'fulfilled') {
         const data = result.value[0]
+        if (!data) throw new Error(xlsxData[index].name + ' 无 ' + xlsxData[index].source_branch + ' 分支')
         xlsxData[index].title = data.title
         xlsxData[index].message = data.message
         console.log(`${xlsxData[index].name}-----success`)
@@ -62,7 +80,7 @@ setMergeRequests.forEach((result, index) => {
     if (result.status === 'fulfilled') {
         console.log(`${xlsxData[index].name}-----success`)
         if (result.value === 'none') return
-        const item = result.value.find(item => item.source_branch === xlsxData[index].source_branch)
+        const item = result.value.find(item => item.source_branch === xlsxData[index].source_branch && item.target_branch === xlsxData[index].target_branch)
         xlsxData[index].merge_url = item.web_url
         xlsxData[index].merge_status = item.merge_status === 'cannot_be_merged' ? '有冲突/已合并,请手动检查' : '无冲突'
     } else if (result.status === 'rejected') {

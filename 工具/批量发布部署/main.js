@@ -94,7 +94,7 @@ function req (url, method = 'get', data) {
     method: method,
     data: data,
     headers: {
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhc2NvcGUiOiIiLCJleHAiOjE3MjQ0NjcwNTQsImlkZW50aXR5Ijo0MywibmljZSI6Ikh1YW5nTG9uZ0p1biIsIm9yaWdfaWF0IjoxNzI0MzgwNjU0LCJyb2xlaWQiOjIsInJvbGVrZXkiOiJkZXYiLCJyb2xlbmFtZSI6IuW8gOWPkSJ9.QFiCDYse4d7VfOiA1irT-dmjmkImSEVFDq5iBmlwud8'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhc2NvcGUiOiIiLCJleHAiOjE3MjY4OTY1MjAsImlkZW50aXR5Ijo0MywibmljZSI6Ikh1YW5nTG9uZ0p1biIsIm9yaWdfaWF0IjoxNzI2ODEwMTIwLCJyb2xlaWQiOjIsInJvbGVrZXkiOiJkZXYiLCJyb2xlbmFtZSI6IuW8gOWPkSJ9.20ZpL5iKZI4O1rgYhwC_7Qp8OcRiUY8IVG6iLM_yyzo'
     },
     timeout: 20 * 1000
   }).then(data => {
@@ -233,32 +233,18 @@ async function batchBuild (projectList, envs) {
 }
 
 let projectList = [
+  // 'jms-mainprogram-microproject-frontend-static',
   // 'jms-workwechat-microproject-frontend-static',
   // 'jms-lead-microproject-frontend-static',
-  // 'jms-websites-frontend-static'
+  // 'jms-analytics-microproject-frontend-static',
+  // 'jms-websites-frontend-static',
+  // 'jms-website-editor-landing-page-frontend-static'
   // 'jms-forms-frontend-static'
   // 'jms-electronicBusinessCard-frontend-static',
   // 'jms-aggregateListPage-frontend-static',
-
-  // 'customApp-microProject-app',
-  // 'privacyPolicy-microProject-app',
-  // 'JINGTrackWeb-microProject-app',
-  // 'JINGTrackMiniProgram-microProject-app',
-  // 'content-microProject-app',
-  // 'contentOld-microProject-app',
-  // 'vipMemberCenter-microProject-app',
-  // 'yiqixiu-microProject-app',
-  // 'teamMemberCenterOld-microProject-app',
-  // 'fullStaffMarketing-microProject-app',
-  // 'salesToolsOld-microProject-app',
-  // 'JINGTrackOld-microProject-app',
-  // 'customEvents-microProject-app',
-  // 'landingPage-microProject-app',
-  // 'webinar-microProject-app',
-  // 'webinarOld-microProject-app',
-  'seminar-microProject-app',
-  // 'seminarOld-microProject-app',
-
+  // 'jms-vip-frontend-static',
+  // 'jms-forms-frontend-static'
+  // 'jms-edm-microproject-frontend-static'
 ];
 
 /* 
@@ -266,12 +252,12 @@ let projectList = [
 */
 
 let envs = [
-  DEV
+  DEV,
   // STAGING
   // LIVE
 ]
 
 batchBuild(projectList, envs)
 
-// batchDeploy(projectList, envs, '【【近岸科技】新版内容管理系统引导框以及旧版文件的下载按钮以及系统引导框希望可以支持配置为英文】https://www.tapd.cn/37515384/prong/stories/view/1137515384001039676')
+// batchDeploy(projectList, envs, '【平台5.0发布验收】https://www.tapd.cn/57788555/prong/stories/view/1157788555001054054')
 

@@ -1,0 +1,118 @@
+@charset "utf-8";
+html {
+  color:#000;
+  background:#fff;
+  overflow-y:scroll;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%
+}
+html * {
+  outline:0;
+  -webkit-text-size-adjust:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,ckquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin:0;
+  padding:0;
+}
+html {
+  body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,button,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,menu,nav,section,time,audio,video{font-weight: 400;box-sizing: border-box;font-family: Uni Neue, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Arial', 'PingFang SC', 'Microsoft YaHei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Segoe UI Symbol';}
+}
+input[type="button"],input[type="submit"],select,button{cursor:pointer;}
+.pointer{cursor:pointer;}
+table{border-collapse:collapse;border-spacing:0;}
+input, textarea, keygen, select, button{
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Arial', 'PingFang SC', 'Microsoft YaHei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Segoe UI Symbol';
+}
+input,select,textarea {
+  font-size:100%;
+  border:0;
+  font-family:-apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', 'Helvetica', 'Tahoma', 'Arial', 'PingFang SC', 'Microsoft YaHei', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol','Segoe UI Symbol';
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+//input:focus,
+textarea:focus,
+select:focus
+{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+select{
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+}
+select:focus
+{
+  -webkit-user-modify: read-only;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0
+}
+fieldset,img {
+  //width:100%;
+  border:0
+}
+abbr,acronym {
+  border:0;
+  font-variant:normal
+}
+del {
+  text-decoration:line-through
+}
+address,caption,cite,code,dfn,em,th,var {
+  font-style:normal;
+  font-weight:500
+}
+ol,ul {
+  list-style:none
+}
+caption,th {
+  text-align:left
+}
+h1,h2,h3,h4,h5,h6 {
+  font-size:100%;
+  font-weight:500
+}
+q:before,q:after {
+  content:''
+}
+sub,sup {
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline
+}
+sup {
+  top:-.5em
+}
+sub {
+  bottom:-.25em
+}
+ins,a {
+  text-decoration:none
+}
+a {
+  text-decoration:none
+}
+a:hover, a:focus {
+  color: #4b2281;
+  text-decoration: underline;
+}
+body {
+  line-height:26px;
+  font-size:14px;
+  color: #000;
+  padding: 0 !important;
+}
+.el-table .cell.el-tooltip{
+  white-space: pre !important;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+}

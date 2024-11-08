@@ -15,10 +15,9 @@ const xlsxData = readFile('./项目目录.xlsx')
 // })
 
 
-
 xlsxData.forEach(item => {
     // 设置要在PowerShell中执行的命令
-    const command = 'yarn';
+    const command = 'git checkout dev';
 
     // 设置PowerShell进程的参数
     const powershellArgs = [ // powershell

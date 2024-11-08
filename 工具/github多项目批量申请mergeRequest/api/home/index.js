@@ -30,3 +30,11 @@ export function getMergeRequests (projectId) {
 }
 
 
+export function getCreatedBanner (projectId, data) {
+    return request({
+        url: `/api/v4/projects/${projectId}/repository/branches`,
+        method: "post",
+        data
+    });
+}
+
