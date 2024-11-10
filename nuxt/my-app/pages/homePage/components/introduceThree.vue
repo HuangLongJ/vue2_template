@@ -200,16 +200,17 @@ export default {
           font-weight: 400;
           text-align: center;
           color: #280071;
-          font-family: YRDZST;
+          font-family: Playball;
           ::v-deep span {
             font-weight: 700;
+            font-family: Playball;
           }
         }
         .swiper2-slide-item-left-tip {
           font-weight: bold;
           text-align: center;
           color: #280071;
-          font-family: YRDZST;
+          font-family: Playball;
         }
       }
       .swiper2-slide-item-right {

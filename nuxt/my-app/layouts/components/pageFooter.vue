@@ -1,139 +1,35 @@
 <script>
+import defaultCard from './pageFooter/defaultCard.vue';
+import caseStudiesCard from './pageFooter/caseStudiesCard.vue';
+import companyCard from './pageFooter/companyCard.vue';
+import { navList } from '@/common/config/navConfig.js';
 export default {
   name: 'pageFooter',
   computed: {
     list () {
-      return [
-        {
-          title: 'PRODUCTS',
-          href: '',
-          children: [
-            {
-              title: 'Marketing Automation',
-              href: ''
-            },
-            {
-              title: 'Sales Engage',
-              href: ''
-            },
-            {
-              title: 'Omni Social',
-              href: ''
-            },
-            {
-              title: 'AI Suite',
-              href: ''
-            },
-            {
-              title: 'AppMart',
-              href: ''
-            },
-            {
-              title: 'CDP',
-              href: ''
-            }
-          ]
-        }, {
-          title: 'SOLUTIONS',
-          href: '',
-          children: [
-            {
-              title: 'Content Management',
-              href: ''
-            },
-            {
-              title: 'Event Management',
-              href: ''
-            },
-            {
-              title: 'E-Commerce',
-              href: ''
-            }, {
-              title: 'Distributor Enablement',
-              href: ''
-            },
-            {
-              title: 'Leads Nurturing',
-              href: ''
-            },
-            {
-              title: 'Sales Enablement',
-              href: ''
-            }
-          ]
-        }, {
-          title: 'CASE STUDIES',
-          href: '',
-          children: [
-            {
-              title: 'High-Tech ',
-              href: ''
-            },
-            {
-              title: 'Industrial',
-              href: ''
-            },
-            {
-              title: 'Life Science',
-              href: ''
-            },
-            {
-              title: ' Business Services',
-              href: ''
-            }
-          ]
-        }, {
-          title: 'COMPANY',
-          href: '',
-          children: [
-            {
-              title: 'About Us',
-              href: ''
-            },
-            {
-              title: 'Leadership',
-              href: ''
-            },
-            {
-              title: 'Our Locations',
-              href: ''
-            }, {
-              title: 'Core Values',
-              href: ''
-            },
-            {
-              title: 'Clients',
-              href: ''
-            },
-            {
-              title: 'Privacy Policy',
-              href: ''
-            }
-          ]
-        },
-      ]
+      return navList
     },
     logos () {
       return [
         {
           src: require('/static/images/logo/Facebook.png'),
-          href: ''
+          path: ''
         },
         {
           src: require('/static/images/logo/Twitter.png'),
-          href: ''
+          path: ''
         },
         {
           src: require('/static/images/logo/LinkedIn.png'),
-          href: ''
+          path: ''
         },
         {
           src: require('/static/images/logo/Instagram.png'),
-          href: ''
+          path: ''
         },
         {
           src: require('/static/images/logo/YouTube.png'),
-          href: ''
+          path: ''
         }
       ]
     },
@@ -143,43 +39,15 @@ export default {
     cardRender () {
       switch (this.viewName) {
         case 'caseStudies':
-          return this.caseStudiesCard
+          return <caseStudiesCard />
+        case 'company':
+          return <companyCard />
         default:
-          return this.defaultCard
+          return <defaultCard />
       }
     },
-    // caseStudies 页面卡片
-    caseStudiesCard () {
-      return (
-        <div class="footer-card case-studies-card">
-          <div class="case-studies-card-box">
-            <div class="case-studies-card-box-title">Let's talk about what JINGdigital can do for your business.</div>
-            <button class="btn-plain">TALK TO AN EXPERT </button>
-          </div>
-          <div class="footer-card-bgImg">
-            <img src={require('/static/images/components/caseStudies/pageFooter2.png')} />
-          </div>
-        </div>
-      )
-    },
-    // 默认卡片
-    defaultCard () {
-      return (
-        <div class="footer-card">
-          <div class="footer-card-box">
-            <div class="footer-card-title">Next generation marketing technology to enhance customer experience and improve marketing effectiveness</div>
-            <div class="footer-card-tip">Helping over 500 leading B2B companies achieved sustained business growth</div>
-            <button class="btn-primary">Get a demo</button>
-          </div>
-          <div class="footer-card-bgImg">
-            <img src={require('/static/images/components/homePage/pageFooter1.png')} />
-          </div>
-        </div>
-      )
-    }
   },
   created () {
-    console.log(this.viewName)
   },
   render () {
     return (
@@ -198,11 +66,11 @@ export default {
                 {
                   this.list.map((item, index) => (
                     <div class="footer-bottom-link-item" key={index}>
-                      <div class="footer-bottom-link-item-title">{item.title}</div>
+                      <div class="footer-bottom-link-item-title" onClick={() => this.$emit('navigationTo', { path: item.path })}>{item.title}</div>
                       {
                         item.children.map((items, indexs) =>
-                        (<div class="footer-bottom-link-item-link" key={indexs}>
-                          <a href={items.href}>{items.title}</a>
+                        (<div class="footer-bottom-link-item-link" key={indexs} onClick={() => this.$emit('navigationTo', { path: item.path, query: items.query })}>
+                          {items.title}
                         </div>))
                       }
                     </div>
@@ -217,9 +85,7 @@ export default {
                   <div class="footer-bottom-base-logos">
                     {this.logos.map((item, index) =>
                     (<div class="footer-bottom-base-logo" key={index}>
-                      <a href={item.href}>
-                        <img src={item.src} />
-                      </a>
+                      <img src={item.src} />
                     </div>)
                     )}
                   </div>
@@ -250,47 +116,6 @@ export default {
       .footer-top {
         width: 100%;
         height: 100%;
-        .footer-card {
-          position: relative;
-          width: 100%;
-          height: 200%;
-          border-radius: 20px;
-          box-shadow: 0px 4px 20px 0px rgba(210, 215, 228, 0.5);
-          overflow: hidden;
-          .footer-card-box {
-            position: relative;
-            z-index: 1;
-            width: 60%;
-            height: 100%;
-            padding: 48px 0 60px 70px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            .footer-card-title {
-              font-size: 40px;
-              line-height: 60px;
-              font-weight: bold;
-              text-align: left;
-              color: #5523b0;
-              margin-bottom: 30px;
-            }
-            .footer-card-tip {
-              font-size: 28px;
-              line-height: 44px;
-              font-weight: 500;
-              color: #333333;
-              text-align: left;
-              margin-bottom: 50px;
-            }
-          }
-          .footer-card-bgImg {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-          }
-        }
       }
     }
   }
@@ -310,13 +135,14 @@ export default {
             line-height: 40px;
             color: #ffffff;
             margin-bottom: 36px;
+            cursor: pointer;
           }
-          .footer-bottom-link-item-link a {
+          .footer-bottom-link-item-link {
             font-size: 20px;
             font-weight: 500;
             line-height: 40px;
             color: #e3e3e3;
-            text-decoration: none;
+            cursor: pointer;
           }
         }
       }
@@ -350,38 +176,9 @@ export default {
       }
     }
   }
-  &.caseStudies {
-    .footer-box-top {
-      .content {
-        .footer-top {
-          .case-studies-card {
-            box-shadow: none;
-            .case-studies-card-box {
-              position: relative;
-              z-index: 1;
-              padding: 56px 60px;
-              display: grid;
-              grid-template-columns: 1fr max-content;
-              grid-gap: 68px;
-              align-items: flex-end;
-              .case-studies-card-box-title {
-                font-size: 40px;
-                font-weight: bold;
-                line-height: 70px;
-                color: #ffffff;
-              }
-              .btn-plain {
-                border: 1px solid #3c27a6;
-                font-size: 22px;
-                padding: 0 24px;
-                background: #fff;
-                color: #5523b0;
-              }
-            }
-          }
-        }
-      }
-    }
+  /* caseStudies 页面卡片 */
+  &.caseStudies,
+  &.company {
     .footer-box {
       padding-top: 90px;
     }
@@ -393,29 +190,6 @@ export default {
     .footer-box-top {
       .content {
         max-width: 100%;
-        .footer-top {
-          .footer-card {
-            .footer-card-box {
-              padding: 38px 0 39px 88px;
-              .footer-card-title {
-                font-size: 24px;
-                line-height: 32px;
-                margin-bottom: 18px;
-              }
-              .footer-card-tip {
-                font-size: 18px;
-                line-height: 24px;
-                margin-bottom: 22px;
-              }
-              .btn-primary {
-                min-width: 0;
-                height: 37px;
-                font-size: 20px;
-                padding: 0;
-              }
-            }
-          }
-        }
       }
     }
     .footer-box {
@@ -455,29 +229,11 @@ export default {
         }
       }
     }
-    &.caseStudies {
+    &.caseStudies,
+    &.company {
       .footer-box-top {
         .content {
           max-width: 660px;
-          .footer-top {
-            .case-studies-card {
-              .case-studies-card-box {
-                padding: 24px 43px;
-                gap: 0;
-                grid-template-columns: 1fr max-content;
-                .case-studies-card-box-title {
-                  font-size: 24px;
-                  line-height: 48px;
-                }
-                .btn-plain {
-                  min-width: 0;
-                  height: 33px;
-                  font-size: 14px;
-                  padding: 0 20px;
-                }
-              }
-            }
-          }
         }
       }
       .footer-box {

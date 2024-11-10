@@ -19,6 +19,7 @@ import introduceThree from './components/introduceThree';
 export default {
   name: 'homePage',
   layout: 'App',
+  inject: ['root'],
   data () {
     return {
 
@@ -45,5 +46,4 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-
 </style>

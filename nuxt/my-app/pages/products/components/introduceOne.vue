@@ -12,12 +12,14 @@ export default {
         {
           src: require('/static/images/components/products/introduceOneItem1.png'),
           title: 'Marketing Automation',
+          module: 'marketingAutomation',
           tip: 'If you are a marketer or CRM manager, we provide a complete marketing automation tool for your business, which can support your customer engagement efforts throughout your customer‘s life cycle, from acquisition to conversion. you can create personalized engagement through your social channels. ',
           layout: 1, // 1 图片优先
         },
         {
           src: require('/static/images/components/products/introduceOneItem2.png'),
           title: 'Sales Engage',
+          module: 'salesEngage',
           tip: "Sales teams now can use a sales tool that leverages the power of social to increase conversions, by giving sales teams a comprehensive view of customers and understanding of customer behaviors before conversion. Whether you are a sales professional that is looking for more marketing data such as customer profile or sales leader who is looking to better track your sales team's path to conversion, this is the tool for you.",
           layout: 2, // 2 文字优先
 
@@ -25,24 +27,28 @@ export default {
         {
           src: require('/static/images/components/products/introduceOneItem3.png'),
           title: 'Omni Social',
+          module: 'omniSocial',
           tip: 'Integrate with major social media platforms such as WhatsApp, LinkedIn, Facebook, Twitter, Instagram, Line, etc., to provide enterprises with social media marketing services/automated processes such as content production and distribution, event dissemination, potential customer incubation, customer experience/customer service, etc. Assist clients in personalized marketing management on social media, continuously improving brand promotion effectiveness/sales growth.',
           layout: 1,
         },
         {
           src: require('/static/images/components/products/introduceOneItem4.png'),
           title: 'Al Suite',
+          module: 'alSuite',
           tip: 'JING integrates major LLM and provides solutions to support marketing teamsin content generation, strategic decision-making, customer experience, marketing automation, knowledge base, data analysis, and marketing collaboration across organizations.',
           layout: 2,
         },
         {
           src: require('/static/images/components/products/introduceOneItem5.png'),
           title: 'AppMart',
+          module: 'appMart',
           tip: 'We provide you with an application integration platform for innovative 3rd party solutions. For example, customers using platforms such as Salesforce, HubSpot, Zoho CRM can use standard connectors available on AppMart to quickly connect their current CRM with your own system, membership system, marketing cloud, or mainstream social media platforms, and integrate it into the customer journey for deep marketing interaction with customers.',
           layout: 1,
         },
         {
           src: require('/static/images/components/products/introduceOneItem6.png'),
           title: 'CDP <br/><span>(Customer Data Platform)</span>',
+          module: 'cdp',
           tip: 'The exclusive customer data platform for B2B multinational enterprises, carrying the entire marketing cycle from customer acquisition to order completion, connects with mainstream CRM, and ensures data security and reliability.',
           layout: 2,
         },
@@ -90,7 +96,10 @@ export default {
                 data.reverse()
               }
               return (
-                <div class={['list-item', 'container-box', item.layout === 2 ? 'layout-style' : '']}>
+                <div
+                class={['list-item', 'container-box', item.layout === 2 ? 'layout-style' : '']}
+                id={item.module}
+                >
                   <div class="container-content">
                     <div class='item' key={index}>
                       {data[0]}

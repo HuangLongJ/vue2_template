@@ -103,18 +103,22 @@ export default {
       return [
         {
           title: 'ABOUT US',
+          module: 'aboutUs',
           render: this.oneRender
         },
         {
           title: 'LEADERSHIP',
+          module: 'leadership',
           render: this.twoRender
         },
         {
           title: 'OUR LOCATIONS',
+          module: 'ourLocations',
           render: this.threeRender
         },
         {
           title: 'CORE VALUES',
+          module: 'coreValues',
           render: this.fourRender
         }
       ]
@@ -226,7 +230,7 @@ export default {
             {
               this.moduleData.map((item, index) => {
                 return (
-                  <div class="item" key={index}>
+                  <div class="item" key={index} id={item.module}>
                     <div class="item-title big-title">{item.title}</div>
                     {item.render}
                   </div>

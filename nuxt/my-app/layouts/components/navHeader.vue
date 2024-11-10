@@ -1,4 +1,6 @@
 <script>
+import { navList } from '@/common/config/navConfig.js';
+
 export default {
   name: 'navHeader',
   data () {
@@ -8,24 +10,7 @@ export default {
   },
   computed: {
     list () {
-      return [
-        {
-          name: 'Products',
-          url: ''
-        },
-        {
-          name: 'Solutions',
-          url: ''
-        },
-        {
-          name: 'Case Studies',
-          url: ''
-        },
-        {
-          name: 'Company',
-          url: ''
-        },
-      ]
+      return navList
     },
     langRender () {
       return <div class="lang">CN</div>
@@ -49,43 +34,68 @@ export default {
   methods: {
     showMenuHander () {
       this.showMenu = !this.showMenu
+    },
+    routerPush (data, type) {
+      this.$emit('navigationTo', data)
+      if (type === 'closeMenu') {
+        this.showMenu = false
+      }
     }
-
   },
   render () {
     return (
       <div class="nav-box">
-        <div class="nav-box-content">
-          <div class="nav-left">
-            <div class="nav-logo">
-              <img src={require('/static/images/logo/logo.png')} />
-            </div>
-            <div class="nav-content">
-              {this.list.map((item, index) => <div class="nav-item" key={index}>{item.name}</div>)}
-            </div>
-          </div>
-          <div class="nav-right">
-            <button class="btn-custom-nav">Get a demo</button>
-            {this.langRender}
-            <div class="nav-menu-icon" onClick={this.showMenuHander}>
-              <img src={require('/static/images/icon/menu-add-fill.png')} />
-            </div>
-          </div>
-          <div class="nav-menu" v-show={this.showMenu}>
-            {this.list.map((item, index) => <div class="nav-menu-item" key={index}>
-              {item.name}
-              <div class="nav-menu-icon">
-                <img src={require('/static/images/icon/arrow-right.png')} />
+        <transition name="fade">
+          <div class="nav-box-content">
+            <div class="nav-left">
+              <div class="nav-logo" onClick={() => this.routerPush({ path: '/homePage' }, 'closeMenu')}>
+                <img src={require('/static/images/logo/logo.png')} />
               </div>
-            </div>)}
-            {this.langRender}
+              <div class="nav-content">
+                {this.list.map((item, index) =>
+                  <div class="nav-item" key={index}>
+                    <div class={['nav-item-title', { active: this.$route.path === item.path }]} onClick={() => this.routerPush({ path: item.path })}>
+                      {item.name}
+                    </div>
+                    <div class="nav-item-select">
+                      {
+                        item.children && item.children.map((items, i) => (
+                          <div class="nav-item-select-item" key={i} onClick={() => this.routerPush({ path: item.path, query: items.query })}>
+                            {items.title}
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>)
+                }
+              </div>
+            </div>
+            <div class="nav-right">
+              <button class="btn-custom-nav">Get a demo</button>
+              {this.langRender}
+              <div class="nav-menu-icon" onClick={this.showMenuHander}>
+                <img src={require('/static/images/icon/menu-add-fill.png')} />
+              </div>
+            </div>
+            <transition name="fade">
+              <div class="nav-menu" v-show={this.showMenu}>
+                {this.list.map((item, index) => <div class={['nav-menu-item', { active: this.$route.path === item.path }]} key={index} onClick={() => this.routerPush({ path: item.path }, 'closeMenu')}>
+                  {item.name}
+                  <div class="nav-menu-icon">
+                    <img src={require('/static/images/icon/arrow-right.png')} />
+                  </div>
+                </div>)}
+                {this.langRender}
+              </div>
+            </transition>
           </div>
-        </div>
+        </transition>
       </div>)
   }
 }
 </script>
 <style scoped lang="scss">
+$navheight: 134px;
 @mixin lang {
   display: flex;
   justify-content: center;
@@ -100,9 +110,10 @@ export default {
   cursor: pointer;
 }
 .nav-box {
-  height: 134px;
+  height: $navheight;
+  position: relative;
   .nav-box-content {
-    height: 134px;
+    height: $navheight;
     padding: 0 80px;
     display: flex;
     justify-content: space-between;
@@ -144,18 +155,64 @@ export default {
         align-items: center;
         gap: 75px;
         margin-left: 70px;
+        height: 100%;
         @include navbar {
           display: none;
         }
         .nav-item {
-          font-size: 20px;
-          font-weight: bold;
-          line-height: 23.4px;
-          color: #333333;
-          cursor: pointer;
-          min-width: fit-content;
+          position: relative;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          &::after {
+            content: '';
+            position: absolute;
+            top: calc(100% - 3px);
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #5523b0;
+            transition: all 0.3s ease-in-out;
+            display: none;
+          }
+          .nav-item-title {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #333333;
+            cursor: pointer;
+            min-width: fit-content;
+            &.active {
+              color: #5523b0;
+            }
+          }
           &:hover {
-            color: #5604ef;
+            &::after {
+              display: block;
+            }
+            .nav-item-select {
+              display: block;
+            }
+          }
+          .nav-item-select {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -20px;
+            background: #fff;
+            z-index: 10;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+            .nav-item-select-item {
+              width: max-content;
+              min-width: 100%;
+              padding: 15px 20px;
+              font-size: 18px;
+              line-height: 24px;
+              cursor: pointer;
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.03);
+              }
+            }
           }
         }
       }
@@ -196,6 +253,11 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+      @media screen and (min-width: 1251px) {
+        display: none;
+      }
       .nav-menu-item {
         width: 100%;
         padding: 46px 0;
@@ -211,6 +273,9 @@ export default {
         &:first-child {
           border-top: none;
         }
+        &.active {
+          color: #5523b0;
+        }
         .nav-menu-icon {
           width: 10px;
           height: 20px;
@@ -222,5 +287,4 @@ export default {
     }
   }
 }
-
 </style>

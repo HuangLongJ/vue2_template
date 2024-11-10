@@ -75,8 +75,8 @@ export default {
         }
       }
       .main-right {
-        max-width: 512px;
-        max-height: 435px;
+        width: 512px;
+        height: 435px;
       }
     }
   }

@@ -57,14 +57,13 @@ export default {
 
   proxy: {
     '/api': {
-      // target: 'http://testapi.xuexiluxian.cn/'
+      target: 'https://devapi.jingsocial.com'
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-    vendor: ['vue-i18n', 'element-ui'],
     babel: {
       presets (env, [preset, options]) {
         return [
@@ -73,11 +72,13 @@ export default {
       }
     },
     postcss: {
-      plugins: {
-        'postcss-pxtorem': {
-          rootValue: 16,
-          propList: ['*'],
-          mediaQuery: true
+      postcssOptions: {
+        plugins: {
+          'postcss-pxtorem': {
+            rootValue: 16,
+            propList: ['*'],
+            mediaQuery: true
+          }
         }
       }
     }

@@ -3,7 +3,7 @@ export default {
   name: 'introduceFour',
   render () {
     return (
-      <div class="box container-box">
+      <div class="box container-box" id="clients">
         <div class="content container-content">
           <div class="title big-title">Serving over 500 leading global B2B companies</div>
           <div class="img">

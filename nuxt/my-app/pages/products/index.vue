@@ -13,13 +13,15 @@
 import mainContent from './components/mainContent.vue';
 import introduceOne from './components/introduceOne.vue';
 import introduceTwo from './components/introduceTwo.vue';
+import scrollToModule from '@/common/mixins/scrollToModule.js';
 
 export default {
   name: 'products',
   layout: 'App',
+  mixins: [scrollToModule],
+  inject: ['root'],
   data () {
     return {
-
     }
   },
   components: {
@@ -27,14 +29,10 @@ export default {
     introduceOne,
     introduceTwo
   },
-  computed: {
-
-  },
   asyncData (data) {
 
   },
   mounted () {
-
   },
   methods: {
 

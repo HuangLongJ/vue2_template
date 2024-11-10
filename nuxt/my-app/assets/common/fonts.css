@@ -1,0 +1,18 @@
+/* 引入本地字体 */
+@font-face {
+  font-family: Uni Neue;
+  src: url('../fonts/Fontfabric-UniNeueRegular.woff') format('woff'),
+       url('../fonts/Fontfabric-UniNeueRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Playball;
+  src: url('../fonts/Playball-Regular.woff') format('woff'),
+       url('../fonts/Playball-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

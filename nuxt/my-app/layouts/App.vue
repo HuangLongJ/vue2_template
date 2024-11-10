@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <!-- nav导航 -->
-    <navHeader />
+    <navHeader @navigationTo="navigationTo" />
     <!-- 路由 -->
     <nuxt></nuxt>
     <!-- 介绍4 -->
     <introduceFour />
     <!-- 底部 -->
-    <pageFooter />
+    <pageFooter @navigationTo="navigationTo" />
   </div>
 </template>
 
@@ -15,6 +15,10 @@
 import navHeader from './components/navHeader.vue';
 import introduceFour from './components/introduceFour.vue';
 import pageFooter from './components/pageFooter.vue';
+import scrollToModule from '@/common/mixins/scrollToModule.js';
+import initCta from '@/common/mixins/initCta.js';
+import _ from 'lodash'
+
 export default {
   name: "App",
   components: {
@@ -22,15 +26,46 @@ export default {
     introduceFour,
     pageFooter
   },
+  mixins: [scrollToModule, initCta],
+  provide () {
+    return {
+      root: this
+    }
+  },
   props: {},
   data () {
-    return {};
+    return {
+      oldrouter: this.$route
+    };
   },
   created () {
 
   },
+  async mounted () {
+    await this.$nextTick()
+    Array.from(document.querySelectorAll('button')).forEach((item) => {
+      item.addEventListener('click', () => {
+        this.startCtaHandler()
+      })
+    })
+  },
   computed: {},
-  methods: {},
+  methods: {
+    startCtaHandler () {
+      this.ctaInstance && this.ctaInstance.start()
+    },
+    // 头部尾部导航跳转
+    navigationTo (data) {
+      // 主导航下不跳转
+      if (_.get(this.oldrouter, 'path') === _.get(data, 'path')) {
+        const module = _.get(data, 'query.module', '')
+        module && this.scrollToAppointItem(`#${module}`)
+        return
+      }
+      this.$router.push(data)
+      this.oldrouter = data
+    }
+  },
 };
 </script>
 <style scoped lang="scss">
