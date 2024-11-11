@@ -15,10 +15,8 @@
 import navHeader from './components/navHeader.vue';
 import introduceFour from './components/introduceFour.vue';
 import pageFooter from './components/pageFooter.vue';
-import scrollToModule from '@/common/mixins/scrollToModule.js';
 import initCta from '@/common/mixins/initCta.js';
 import _ from 'lodash'
-
 export default {
   name: "App",
   components: {
@@ -26,7 +24,7 @@ export default {
     introduceFour,
     pageFooter
   },
-  mixins: [scrollToModule, initCta],
+  mixins: [initCta],
   provide () {
     return {
       root: this
@@ -35,11 +33,8 @@ export default {
   props: {},
   data () {
     return {
-      oldrouter: this.$route
-    };
-  },
-  created () {
 
+    };
   },
   async mounted () {
     await this.$nextTick()
@@ -56,14 +51,7 @@ export default {
     },
     // 头部尾部导航跳转
     navigationTo (data) {
-      // 主导航下不跳转
-      if (_.get(this.oldrouter, 'path') === _.get(data, 'path')) {
-        const module = _.get(data, 'query.module', '')
-        module && this.scrollToAppointItem(`#${module}`)
-        return
-      }
       this.$router.push(data)
-      this.oldrouter = data
     }
   },
 };

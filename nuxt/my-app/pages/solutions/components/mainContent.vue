@@ -30,7 +30,7 @@ export default {
               <btnBtns />
             </div>
             <div class="main-right">
-              <img src={require('/static/images/components/solutions/mainContent.png')} />
+              <img src={require('~/assets/images/components/solutions/mainContent.png')} />
             </div>
           </div>
 
@@ -44,7 +44,7 @@ export default {
 .main-box {
   padding: 140px 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f1f3ff 99%);
-  min-height: calc(100vh - 134px);
+  min-height: calc(100vh - $navheight);
   .main-content {
     display: flex;
     flex-direction: column;

@@ -10,40 +10,40 @@ export default {
     list () {
       return [
         {
-          src: require('/static/images/components/solutions/introduceOneItem1.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem1.png'),
           title: 'Content Management',
-          module: 'contentManagement',
+          target: 'contentManagement',
           tip: "Drag and drop to build customer content marketing center with zerocode, producing different types of content for customers with different lifecycles. By combining personalized graphics, forms, mini programs, and other forms, we can accurately reach customers through multiple social channels and track the interactive effect in real-time, ultimately guiding customers to enter the next procurement stage."
         },
         {
-          src: require('/static/images/components/solutions/introduceOneItem2.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem2.png'),
           title: 'Event Management',
-          module: 'eventManagement',
+          target: 'eventManagement',
           tip: "Full marketing process management covering webinar and offline activities. Improve the operational efficiency of activities and the digital experience of customers in every aspect, including pre registration, in-session interaction, post-session follow-up, and data analysis."
 
         },
         {
-          src: require('/static/images/components/solutions/introduceOneItem3.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem3.png'),
           title: 'E-Commerce',
-          module: 'eCommerce',
+          target: 'eCommerce',
           tip: "Connect major e-commerce platforms and private e-commerce stores with social media channels. Using social media as the main marketing platform and leveraging customer insights, we help B2B companies enhance conversion and repurchase, and achieve GMV growth on their e-commerce platform."
         },
         {
-          src: require('/static/images/components/solutions/introduceOneItem4.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem4.png'),
           title: 'Distributor Enablement',
-          module: 'distributorEnablement',
+          target: 'distributorEnablement',
           tip: "Support distribtor enablement with digital content center and real-time personalized engagement on social channel. Enhance collaboration with distributor by improving information flow between B2B enterprises with their distributors abd leveraging AI capabilities in intelligently suggesting next actions to distributors."
         },
         {
-          src: require('/static/images/components/solutions/introduceOneItem5.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem5.png'),
           title: 'Leads Nurturing',
-          module: 'leadsNurturing',
+          target: 'leadsNurturing',
           tip: "Continuously nurture sales leads at different stages of their lifecycle. Predicting customer behavior, discovering high-quality business opportunities, and improving conversion rate."
         },
         {
-          src: require('/static/images/components/solutions/introduceOneItem6.png'),
+          src: require('~/assets/images/components/solutions/introduceOneItem6.png'),
           title: 'Sales Enablement',
-          module: 'salesEnablement',
+          target: 'salesEnablement',
           tip: "Continuously nurture sales leads at different stages of their lifecycle. Predicting customer behavior, discovering high-quality business opportunities, and improving conversion rate."
         },
       ]
@@ -65,9 +65,9 @@ export default {
             {
               this.list.map((item, index) => {
                 return (
-                  <div class="item" key={index} id={item.module}>
+                  <div class="item" key={index} id={item.target}>
                     <div class="item-box">
-                      <div class="item-box-style-img"><img src={require('/static/images/components/solutions/introduceOneItemStyle.png')} /></div>
+                      <div class="item-box-style-img"><img src={require('~/assets/images/components/solutions/introduceOneItemStyle.png')} /></div>
                       {this.titleRender(item)}
                       <div class="item-box-main">
                         <div class="item-box-img">
@@ -107,7 +107,7 @@ export default {
       margin-top: 90px;
       .item {
         margin-bottom: 90px;
-
+        scroll-margin-top: 140px;
         &:last-child {
           margin-bottom: 0;
         }

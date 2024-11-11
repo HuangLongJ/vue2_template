@@ -10,25 +10,25 @@ export default {
     logoList () {
       const img = [
         {
-          src: require('/static/images/logo/dell.png')
+          src: require('~/assets/images/logo/dell.png')
         },
         {
-          src: require('/static/images/logo/amazon.png')
+          src: require('~/assets/images/logo/amazon.png')
         },
         {
-          src: require('/static/images/logo/sap.png')
+          src: require('~/assets/images/logo/sap.png')
         },
         {
-          src: require('/static/images/logo/siemens.png')
+          src: require('~/assets/images/logo/siemens.png')
         },
         {
-          src: require('/static/images/logo/signify.png')
+          src: require('~/assets/images/logo/signify.png')
         },
         {
-          src: require('/static/images/logo/sanofi.png')
+          src: require('~/assets/images/logo/sanofi.png')
         },
         {
-          src: require('/static/images/logo/in.png')
+          src: require('~/assets/images/logo/in.png')
         }
       ]
       return img.concat(img)
@@ -36,7 +36,7 @@ export default {
     imgRender () {
       return (className) => (
         <div class={className}>
-          <img src={require('/static/images/components/homePage/mainContent.png')} />
+          <img src={require('~/assets/images/components/homePage/mainContent.png')} />
         </div>
       )
     }
@@ -90,7 +90,7 @@ export default {
 .main-box {
   padding: 127px 0 77px;
   background: linear-gradient(122deg, #100d2c 11%, #3c27a6 45%, #7c3cb6 73%, #3b5ccd 88%);
-  min-height: calc(100vh - 134px);
+  min-height: calc(100vh - $navheight);
   .main-content {
     display: flex;
     flex-direction: column;

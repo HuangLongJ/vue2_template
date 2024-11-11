@@ -30,7 +30,7 @@ export default {
               <btnBtns config={{ btnText1: "Get started free" }} />
             </div>
             <div class="main-right">
-              <img src={require('/static/images/components/caseStudies/mainContent.png')} />
+              <img src={require('~/assets/images/components/caseStudies/mainContent.png')} />
             </div>
           </div>
 
@@ -44,7 +44,7 @@ export default {
 .main-box {
   padding: 78px 0 140px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F1F3FF 99%);
-  min-height: calc(100vh - 134px);
+  min-height: calc(100vh - $navheight);
   .main-content {
     display: flex;
     flex-direction: column;

@@ -10,32 +10,32 @@ export default {
     list () {
       return [
         {
-          src: require('/static/images/components/homePage/introduceThreeItem1.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem1.png'),
           title: 'Content Management',
           tip: 'Quickly generate，publish, promote and analyze personalized marketing content using JING AI'
         },
         {
-          src: require('/static/images/components/homePage/introduceThreeItem2.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem2.png'),
           title: 'Event Management',
           tip: 'Full process management of webinar and off-line events'
         },
         {
-          src: require('/static/images/components/homePage/introduceThreeItem3.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem3.png'),
           title: 'E-Commerce',
           tip: 'Integrate with e-commerce platforms and enhance repeat purchases'
         },
         {
-          src: require('/static/images/components/homePage/introduceThreeItem4.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem4.png'),
           title: 'Distributor Enablement',
           tip: 'Provide intelligent marketing support for distributors and make collaboration with distributors more efficient'
         },
         {
-          src: require('/static/images/components/homePage/introduceThreeItem5.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem5.png'),
           title: 'Leads Nurturing',
           tip: 'Personalized nurturing of sales leads across different stages of their lifecycle to uplift business results'
         },
         {
-          src: require('/static/images/components/homePage/introduceThreeItem6.png'),
+          src: require('~/assets/images/components/homePage/introduceThreeItem6.png'),
           title: 'Sales Enablement',
           tip: 'Seamless integration of marketing data in sales process to increase sales efficiency and create measurable business results'
         },

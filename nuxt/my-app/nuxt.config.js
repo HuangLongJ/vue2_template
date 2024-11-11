@@ -30,7 +30,7 @@ export default {
     '@/plugins/axios',
     '@/plugins/vue-i18n',
     { src: '@/plugins/swiper', mode: 'client' },
-    { src: '@/plugins/global.js', mode: 'client' }
+    { src: '@/plugins/global.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -41,7 +41,10 @@ export default {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    scss: ['./assets/common/_mixins.scss']
+    scss: [
+      './assets/common/_mixins.scss',
+      './assets/common/common.scss'
+    ]
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

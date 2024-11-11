@@ -19,7 +19,7 @@ export default {
           <button class="btn-primary">Get a demo</button>
         </div>
         <div class="footer-card-bgImg">
-          <img src={require('/static/images/components/homePage/pageFooter1.png')} />
+          <img src={require('~/assets/images/components/homePage/pageFooter1.png')} />
         </div>
       </div>
     )

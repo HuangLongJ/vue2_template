@@ -10,13 +10,11 @@
 <script>
 import mainContent from './components/mainContent.vue';
 import introduceOne from './components/introduceOne.vue';
-import scrollToModule from '@/common/mixins/scrollToModule.js';
 
 export default {
   name: 'solutions',
   layout: 'App',
   inject: ['root'],
-  mixins: [scrollToModule],
   data () {
     return {
 

@@ -7,7 +7,7 @@ export default {
         <div class="content container-content">
           <div class="title big-title">Serving over 500 leading global B2B companies</div>
           <div class="img">
-            <img src={require('/static/images/components/homePage/introduceFour1.png')} alt="" />
+            <img src={require('~/assets/images/components/homePage/introduceFour1.png')} alt="" />
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@ export default {
 .box {
   padding: 100px 0;
   background: #f6f7ff;
-  background-blend-mode: darken;
+  scroll-margin-top: 80px;
   .content {
     display: flex;
     flex-direction: column;

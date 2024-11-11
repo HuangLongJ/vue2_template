@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{HEAD}}
+    <script
+      type="text/javascript"
+      src="https://dev.jingsocial.com/open/js/jingCTA/1.0.0/sdkEntry.js"
+    ></script>
+  </head>
+  <body>
+    {{APP}}
+  </body>
+  <style>
+    @media screen and (max-width: 768px) {
+      html {
+        /* moblic */
+        font-size: calc(16 * (100vw / 768)) !important;
+      }
+    }
+    @media screen and (min-width: 769px) {
+      html {
+        /* pc */
+        font-size: 16px !important;
+      }
+    }
+  </style>
+</html>

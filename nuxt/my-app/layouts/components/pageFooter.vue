@@ -12,23 +12,23 @@ export default {
     logos () {
       return [
         {
-          src: require('/static/images/logo/Facebook.png'),
+          src: require('~/assets/images/logo/Facebook.png'),
           path: ''
         },
         {
-          src: require('/static/images/logo/Twitter.png'),
+          src: require('~/assets/images/logo/Twitter.png'),
           path: ''
         },
         {
-          src: require('/static/images/logo/LinkedIn.png'),
+          src: require('~/assets/images/logo/LinkedIn.png'),
           path: ''
         },
         {
-          src: require('/static/images/logo/Instagram.png'),
+          src: require('~/assets/images/logo/Instagram.png'),
           path: ''
         },
         {
-          src: require('/static/images/logo/YouTube.png'),
+          src: require('~/assets/images/logo/YouTube.png'),
           path: ''
         }
       ]
@@ -66,12 +66,19 @@ export default {
                 {
                   this.list.map((item, index) => (
                     <div class="footer-bottom-link-item" key={index}>
-                      <div class="footer-bottom-link-item-title" onClick={() => this.$emit('navigationTo', { path: item.path })}>{item.title}</div>
+                      <NuxtLink to={{ path: item.path }}>
+                        <div class="footer-bottom-link-item-title">
+                          {item.title}
+                        </div>
+                      </NuxtLink>
                       {
                         item.children.map((items, indexs) =>
-                        (<div class="footer-bottom-link-item-link" key={indexs} onClick={() => this.$emit('navigationTo', { path: item.path, query: items.query })}>
-                          {items.title}
-                        </div>))
+                        (<NuxtLink to={{ path: item.path + '#' + items.target }}>
+                          <div class="footer-bottom-link-item-link" key={indexs} >
+                            {items.title}
+                          </div>
+                        </NuxtLink>
+                        ))
                       }
                     </div>
                   ))
@@ -79,7 +86,7 @@ export default {
               </div>
               <div class="footer-bottom-base">
                 <div class="footer-bottom-base-left">
-                  <img src={require('/static/images/logo/whiteLogo.png')} />
+                  <img src={require('~/assets/images/logo/whiteLogo.png')} />
                 </div>
                 <div class="footer-bottom-base-right">
                   <div class="footer-bottom-base-logos">

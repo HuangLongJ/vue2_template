@@ -10,32 +10,32 @@ export default {
     list () {
       return [
         {
-          src: require('/static/images/logo/introduceTwologo1.png'),
+          src: require('~/assets/images/logo/introduceTwologo1.png'),
           title: 'Marketing Automation',
           tip: 'Comprehensive marketing tools, automated task creation, data-driven marketing decisions, and efficient conversion of potential customers into deals'
         },
         {
-          src: require('/static/images/logo/introduceTwologo2.png'),
+          src: require('~/assets/images/logo/introduceTwologo2.png'),
           title: 'Sales Engage',
           tip: 'An all-in-one sales tool that facilitates data transfer between marketing and sales, and manages real-time interaction between businesses and customers'
         },
         {
-          src: require('/static/images/logo/introduceTwologo3.png'),
+          src: require('~/assets/images/logo/introduceTwologo3.png'),
           title: 'Omni Social',
           tip: 'Integrate global social media platforms for unified content management, distribution, interaction, and analysis'
         },
         {
-          src: require('/static/images/logo/introduceTwologo4.png'),
+          src: require('~/assets/images/logo/introduceTwologo4.png'),
           title: 'Al Suite',
           tip: 'Intrgrating the latest AI technology and applications to efficiently manage marketing activities, saving time and resources'
         },
         {
-          src: require('/static/images/logo/introduceTwologo5.png'),
+          src: require('~/assets/images/logo/introduceTwologo5.png'),
           title: 'AppMart',
           tip: 'Allows easy intragration of innovative 3rd party B2B marketing solutions and applications'
         },
         {
-          src: require('/static/images/logo/introduceTwologo6.png'),
+          src: require('~/assets/images/logo/introduceTwologo6.png'),
           title: 'CDP',
           tip: 'Help businesses better understand customer behavior, preferences, and needs in order to develop more effective marketing and sales strategies'
         },
@@ -75,7 +75,7 @@ export default {
         {
           leftRender: (
             <div class="item-box">
-              {this.imgRender(require('/static/images/components/homePage/introduceTwoItem1.png'))}
+              {this.imgRender(require('~/assets/images/components/homePage/introduceTwoItem1.png'))}
               {this.btnRender()}
             </div>
           ),
@@ -93,7 +93,7 @@ export default {
           ),
           rightRender: (
             <div class="item-box">
-              {this.imgRender(require('/static/images/components/homePage/introduceTwoItem2.png'))}
+              {this.imgRender(require('~/assets/images/components/homePage/introduceTwoItem2.png'))}
               {this.btnRender()}
             </div>
           )

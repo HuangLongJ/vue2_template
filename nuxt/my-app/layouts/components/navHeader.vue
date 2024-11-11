@@ -19,24 +19,15 @@ export default {
   asyncData (data) {
 
   },
-  async mounted () {
-    // 监听滚动事件 给nav-box 添加class 添加防抖
-    await this.$nextTick()
-    window.addEventListener('scroll', () => {
-      const navBox = document.querySelector('.nav-box-content')
-      if (window.scrollY > 0) {
-        navBox.classList.add('nav-box-fixed')
-      } else {
-        navBox.classList.remove('nav-box-fixed')
-      }
-    })
+  mounted () {
+
   },
   methods: {
     showMenuHander () {
       this.showMenu = !this.showMenu
     },
     routerPush (data, type) {
-      this.$emit('navigationTo', data)
+      this.$router.push(data)
       if (type === 'closeMenu') {
         this.showMenu = false
       }
@@ -49,20 +40,24 @@ export default {
           <div class="nav-box-content">
             <div class="nav-left">
               <div class="nav-logo" onClick={() => this.routerPush({ path: '/homePage' }, 'closeMenu')}>
-                <img src={require('/static/images/logo/logo.png')} />
+                <img src={require('~/assets/images/logo/logo.png')} />
               </div>
               <div class="nav-content">
                 {this.list.map((item, index) =>
                   <div class="nav-item" key={index}>
-                    <div class={['nav-item-title', { active: this.$route.path === item.path }]} onClick={() => this.routerPush({ path: item.path })}>
-                      {item.name}
-                    </div>
+                    <NuxtLink to={{ path: item.path }}>
+                      <div class={['nav-item-title', { active: this.$route.path === item.path }]}>
+                        {item.name}
+                      </div>
+                    </NuxtLink>
                     <div class="nav-item-select">
                       {
                         item.children && item.children.map((items, i) => (
-                          <div class="nav-item-select-item" key={i} onClick={() => this.routerPush({ path: item.path, query: items.query })}>
-                            {items.title}
-                          </div>
+                          <NuxtLink to={{ path: item.path + '#' + items.target }}>
+                            <div class="nav-item-select-item" key={i} >
+                              {items.title}
+                            </div>
+                          </NuxtLink>
                         ))
                       }
                     </div>
@@ -74,7 +69,7 @@ export default {
               <button class="btn-custom-nav">Get a demo</button>
               {this.langRender}
               <div class="nav-menu-icon" onClick={this.showMenuHander}>
-                <img src={require('/static/images/icon/menu-add-fill.png')} />
+                <img src={require('~/assets/images/icon/menu-add-fill.png')} />
               </div>
             </div>
             <transition name="fade">
@@ -82,7 +77,7 @@ export default {
                 {this.list.map((item, index) => <div class={['nav-menu-item', { active: this.$route.path === item.path }]} key={index} onClick={() => this.routerPush({ path: item.path }, 'closeMenu')}>
                   {item.name}
                   <div class="nav-menu-icon">
-                    <img src={require('/static/images/icon/arrow-right.png')} />
+                    <img src={require('~/assets/images/icon/arrow-right.png')} />
                   </div>
                 </div>)}
                 {this.langRender}
@@ -95,7 +90,6 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-$navheight: 134px;
 @mixin lang {
   display: flex;
   justify-content: center;
@@ -112,29 +106,19 @@ $navheight: 134px;
 .nav-box {
   height: $navheight;
   position: relative;
+  background-color: #fff;
   .nav-box-content {
     height: $navheight;
     padding: 0 80px;
     display: flex;
     justify-content: space-between;
-    &.nav-box-fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      background: #fff;
-      box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
-    }
-    @include pc {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      background: #fff;
-      box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
     .nav-left {
       flex: 1;
       display: flex;
@@ -164,6 +148,7 @@ $navheight: 134px;
           height: 100%;
           display: flex;
           align-items: center;
+          cursor: pointer;
           &::after {
             content: '';
             position: absolute;
@@ -176,11 +161,13 @@ $navheight: 134px;
             display: none;
           }
           .nav-item-title {
+            height: 100%;
+            display: flex;
+            align-items: center;
             font-size: 20px;
             font-weight: bold;
             line-height: 24px;
             color: #333333;
-            cursor: pointer;
             min-width: fit-content;
             &.active {
               color: #5523b0;
@@ -189,6 +176,9 @@ $navheight: 134px;
           &:hover {
             &::after {
               display: block;
+            }
+            .nav-item-title {
+              color: #5523b0;
             }
             .nav-item-select {
               display: block;
@@ -210,6 +200,7 @@ $navheight: 134px;
               line-height: 24px;
               cursor: pointer;
               &:hover {
+                color: #5523b0;
                 background-color: rgba(0, 0, 0, 0.03);
               }
             }
@@ -244,7 +235,7 @@ $navheight: 134px;
 
     .nav-menu {
       position: fixed;
-      top: 134px;
+      top: $navheight;
       left: 0;
       width: 100%;
       z-index: 999;
@@ -253,8 +244,7 @@ $navheight: 134px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.3);
       @media screen and (min-width: 1251px) {
         display: none;
       }

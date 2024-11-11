@@ -10,14 +10,14 @@ export default {
     list () {
       return [
         {
-          src: require('/static/images/components/caseStudies/introduceOneItem1.png'),
+          src: require('~/assets/images/components/caseStudies/introduceOneItem1.png'),
           num: '132<span>%</span>',
           status: 'increase',
           title: 'Lead Pool Growth',
           tip: "Automated marketing workflows across content, live streaming, events, and e-commerce to drive substantial gains in customer acquisition within 1 year"
         },
         {
-          src: require('/static/images/components/caseStudies/introduceOneItem1.png'),
+          src: require('~/assets/images/components/caseStudies/introduceOneItem1.png'),
           num: '63<span>%</span>',
           status: 'increase',
           title: 'Lead-to-Opportunity Conversion Rate',
@@ -25,7 +25,7 @@ export default {
 
         },
         {
-          src: require('/static/images/components/caseStudies/introduceOneItem1.png'),
+          src: require('~/assets/images/components/caseStudies/introduceOneItem1.png'),
           num: '78<span>%</span>',
           status: 'increase',
           title: 'Marketing Team’s Performance ',

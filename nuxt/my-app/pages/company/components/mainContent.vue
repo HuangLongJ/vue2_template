@@ -11,8 +11,8 @@ export default {
       <div class="main">
         <div class="main-box container-box">
           <div class="main-box-bg">
-            <img class="pc" src={require('/static/images/components/company/mainContent1.png')} />
-            <img class="moblie" src={require('/static/images/components/company/mainContent2.png')} />
+            <img class="pc" src={require('~/assets/images/components/company/mainContent1.png')} />
+            <img class="moblie" src={require('~/assets/images/components/company/mainContent2.png')} />
           </div>
           <div class="main-content container-content">
             <div class="main-title">Empowering B2B Marketers To Make An Impact On Revenue</div>
@@ -34,7 +34,7 @@ export default {
   background: linear-gradient(180deg, #d4d9ff 57%, rgba(255, 255, 255, 0) 100%);
   .main-box {
     padding-top: 120px;
-    min-height: calc(100vh - 134px);
+    min-height: calc(100vh - $navheight);
     position: relative;
     .main-box-bg {
       position: absolute;

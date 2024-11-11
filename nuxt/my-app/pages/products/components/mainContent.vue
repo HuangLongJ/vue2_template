@@ -10,7 +10,7 @@ export default {
     return (
       <div class="main-box container-box">
         <div class="main-box-bg">
-          <img src={require('/static/images/components/products/mainContent.png')} />
+          <img src={require('~/assets/images/components/products/mainContent.png')} />
         </div>
         <div class="main-content container-content">
           <div class="main-title">JINGdigitl Products</div>

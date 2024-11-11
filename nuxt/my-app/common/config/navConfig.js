@@ -1,4 +1,4 @@
-export const navList =[
+export const navList = [
   {
     name: 'Products',
     title: 'PRODUCTS',
@@ -6,39 +6,27 @@ export const navList =[
     children: [
       {
         title: 'Marketing Automation',
-        query: {
-          module: 'marketingAutomation',
-        }
+        target: 'marketingAutomation',
       },
       {
         title: 'Sales Engage',
-        query: {
-          module: 'salesEngage',
-        }
+        target: 'salesEngage',
       },
       {
         title: 'Omni Social',
-        query: {
-          module: 'omniSocial',
-        }
+        target: 'omniSocial',
       },
       {
         title: 'AI Suite',
-        query: {
-          module: 'alSuite',
-        }
+        target: 'alSuite',
       },
       {
         title: 'AppMart',
-        query: {
-          module: 'appMart',
-        }
+        target: 'appMart',
       },
       {
         title: 'CDP',
-        query: {
-          module: 'cdp',
-        }
+        target: 'cdp',
       }
     ]
   }, {
@@ -48,38 +36,26 @@ export const navList =[
     children: [
       {
         title: 'Content Management',
-        query: {
-          module: 'contentManagement'
-        }
+        target: 'contentManagement'
       },
       {
         title: 'Event Management',
-        query: {
-          module: 'eventManagement'
-        }
+        target: 'eventManagement'
       },
       {
         title: 'E-Commerce',
-        query: {
-          module: 'eCommerce'
-        }
+        target: 'eCommerce'
       }, {
         title: 'Distributor Enablement',
-        query: {
-          module: 'distributorEnablement'
-        }
+        target: 'distributorEnablement'
       },
       {
         title: 'Leads Nurturing',
-        query: {
-          module: 'leadsNurturing'
-        }
+        target: 'leadsNurturing'
       },
       {
         title: 'Sales Enablement',
-        query: {
-          module: 'salesEnablement'
-        }
+        target: 'salesEnablement'
       }
     ]
   }, {
@@ -89,27 +65,19 @@ export const navList =[
     children: [
       {
         title: 'High-Tech',
-        query: {
-          module: 'highTech'
-        }
+        target: 'highTech'
       },
       {
         title: 'Industrial',
-        query: {
-          module: 'industrial'
-        }
+        target: 'industrial'
       },
       {
         title: 'Life Science',
-        query: {
-          module: 'lifeScience'
-        }
+        target: 'lifeScience'
       },
       {
         title: 'Business Services',
-        query: {
-          module: 'businessServices'
-        }
+        target: 'businessServices'
       }
     ]
   }, {
@@ -119,38 +87,26 @@ export const navList =[
     children: [
       {
         title: 'About Us',
-        query: {
-          module: 'aboutUs'
-        }
+        target: 'aboutUs'
       },
       {
         title: 'Leadership',
-        query: {
-          module: 'leadership'
-        }
+        target: 'leadership'
       },
       {
         title: 'Our Locations',
-        query: {
-          module: 'ourLocations'
-        }
+        target: 'ourLocations'
       }, {
         title: 'Core Values',
-        query: {
-          module: 'coreValues'
-        }
+        target: 'coreValues'
       },
       {
         title: 'Clients',
-        query: {
-          module: 'clients'
-        }
+        target: 'clients'
       },
       {
         title: 'Privacy Policy',
-        query: {
-          module: 'privacyPolicy'
-        }
+        target: 'privacyPolicy'
       }
     ]
   },

@@ -10,22 +10,22 @@ export default {
     list () {
       return [
         {
-          src: require('/static/images/components/homePage/introduceOneItem1.png'),
+          src: require('~/assets/images/components/homePage/introduceOneItem1.png'),
           title: 'Social media based engagement',
           tip: 'Integrate major social media platforms globally to construct more comprehensive customer profiles and customer data'
         },
         {
-          src: require('/static/images/components/homePage/introduceOneItem2.png'),
+          src: require('~/assets/images/components/homePage/introduceOneItem2.png'),
           title: 'Real-time personalization',
           tip: 'Leverage social messaging capabilities, providing customers with more personalized interactive experiences, enhancing customer satisfaction and loyalty'
         },
         {
-          src: require('/static/images/components/homePage/introduceOneItem3.png'),
+          src: require('~/assets/images/components/homePage/introduceOneItem3.png'),
           title: 'Marketing and sales alignment',
           tip: 'Unleash power of marketing data and create tangible business impact with powerful product suit connecting marketing and sales'
         },
         {
-          src: require('/static/images/components/homePage/introduceOneItem4.png'),
+          src: require('~/assets/images/components/homePage/introduceOneItem4.png'),
           title: 'AI Driven',
           tip: 'Increase productvity of marketing teams and reduce cost using AI-enabled product features in core marketing functions '
         }

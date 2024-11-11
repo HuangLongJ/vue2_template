@@ -6,10 +6,8 @@ export default {
       ctaReady: false
     }
   },
-  created () {
-    if (process.client) {
-      this.initCta()
-    }
+  mounted () {
+    this.initCta()
   },
   methods: {
     /**
