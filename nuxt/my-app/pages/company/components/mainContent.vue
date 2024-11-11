@@ -34,7 +34,7 @@ export default {
   background: linear-gradient(180deg, #d4d9ff 57%, rgba(255, 255, 255, 0) 100%);
   .main-box {
     padding-top: 120px;
-    min-height: calc(100vh - $navheight);
+    min-height: calc(100vh - #{$navHeight});
     position: relative;
     .main-box-bg {
       position: absolute;

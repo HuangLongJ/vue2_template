@@ -12,16 +12,20 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/css/fonts.css' }
+    ],
+    script: [
+      { src: 'https://dev.jingsocial.com/open/js/jingCTA/1.0.0/sdkEntry.js', type: 'text/javascript' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'normalize.css',
+    'swiper/css/swiper.css',
     'element-ui/lib/theme-chalk/index.css',
     './assets/main.scss',
-    'swiper/css/swiper.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -63,7 +67,10 @@ export default {
       target: 'https://devapi.jingsocial.com'
     }
   },
-
+  server: {
+    port: 3000,//端口
+    host: '0.0.0.0' // default: localhost
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],

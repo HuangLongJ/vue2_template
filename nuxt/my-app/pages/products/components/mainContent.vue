@@ -28,6 +28,7 @@ export default {
 .main-box {
   padding-top: 120px;
   background-color: #fff;
+  min-height: calc(100vh - #{$navHeight});
   height: 755px;
   position: relative;
   background-color: #fafafa;
@@ -35,6 +36,7 @@ export default {
   .main-box-bg {
     position: absolute;
     bottom: 0;
+    width: 100%;
     height: 100%;
   }
   .main-content {
@@ -66,6 +68,7 @@ export default {
   .main-box {
     padding-top: 89px;
     height: 575px;
+    min-height: 0;
     .main-box-bg {
       height: 394px;
     }

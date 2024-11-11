@@ -160,6 +160,7 @@ export default {
         align-items: center;
         padding: 60px 0 70px;
         .footer-bottom-base-left {
+          width: 329px;
           height: 94px;
         }
         .footer-bottom-base-right {
@@ -173,6 +174,7 @@ export default {
             gap: 40px;
             margin-bottom: 22px;
             .footer-bottom-base-logo {
+              width: auto;
               height: 40px;
             }
           }
@@ -211,6 +213,7 @@ export default {
             flex-direction: column;
             padding: 0 0 52px;
             .footer-bottom-base-left {
+              width: 196px;
               height: 57px;
               margin-bottom: 51px;
             }

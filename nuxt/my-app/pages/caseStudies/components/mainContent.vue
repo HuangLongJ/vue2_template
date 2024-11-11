@@ -44,7 +44,7 @@ export default {
 .main-box {
   padding: 78px 0 140px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F1F3FF 99%);
-  min-height: calc(100vh - $navheight);
+  min-height: calc(100vh - #{$navHeight});
   .main-content {
     display: flex;
     flex-direction: column;

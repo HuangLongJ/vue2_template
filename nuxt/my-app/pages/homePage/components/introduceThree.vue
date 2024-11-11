@@ -182,18 +182,23 @@ export default {
         flex-direction: column;
         justify-content: space-between;
 
-        .swiper2-slide-item-left-logo1 {
+        .swiper2-slide-item-left-logo1,
+        .swiper2-slide-item-left-logo2 {
           position: absolute;
+          height: 90px;
+          img {
+            width: auto;
+            height: 90px;
+          }
+        }
+        .swiper2-slide-item-left-logo1 {
           top: 0;
           left: 43px;
-          height: 90px;
           transform: translateY(-80%);
         }
         .swiper2-slide-item-left-logo2 {
-          position: absolute;
           bottom: 0;
           right: 43px;
-          height: 90px;
           transform: translateY(80%);
         }
         .swiper2-slide-item-left-title {
@@ -243,6 +248,7 @@ export default {
   background: #ffffff;
   box-shadow: 0px 4px 20px 0px rgba(210, 215, 228, 0.5);
   .swiper-slide-item-img {
+    width: 100%;
     height: 228px;
   }
   .swiper-slide-item-content {

@@ -104,11 +104,11 @@ export default {
   cursor: pointer;
 }
 .nav-box {
-  height: $navheight;
+  height: $navHeight;
   position: relative;
   background-color: #fff;
   .nav-box-content {
-    height: $navheight;
+    height: $navHeight;
     padding: 0 80px;
     display: flex;
     justify-content: space-between;
@@ -127,8 +127,8 @@ export default {
       min-width: fit-content;
 
       .nav-logo {
-        max-width: 186px;
-        max-height: 63px;
+        width: 186px;
+        height: 63px;
         img {
           cursor: pointer;
         }
@@ -198,6 +198,7 @@ export default {
               padding: 15px 20px;
               font-size: 18px;
               line-height: 24px;
+              color: #333333;
               cursor: pointer;
               &:hover {
                 color: #5523b0;
@@ -235,7 +236,7 @@ export default {
 
     .nav-menu {
       position: fixed;
-      top: $navheight;
+      top: $navHeight;
       left: 0;
       width: 100%;
       z-index: 999;

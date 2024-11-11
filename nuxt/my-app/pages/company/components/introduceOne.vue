@@ -409,8 +409,8 @@ export default {
               flex-direction: column;
               align-items: center;
               .item-four-box-list-item-img {
-                max-width: 115px;
-                max-height: 115px;
+                width: 115px;
+                height: 115px;
               }
               .item-four-box-list-item-title {
                 margin-top: 36px;

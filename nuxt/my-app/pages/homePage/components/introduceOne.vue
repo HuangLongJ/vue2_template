@@ -124,6 +124,7 @@ export default {
         grid-gap: 60px;
         .list-item {
           .list-item-img {
+            width: 100%;
             height: 400px;
           }
           .list-item-title {

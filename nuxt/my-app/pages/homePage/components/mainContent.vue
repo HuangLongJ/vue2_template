@@ -90,7 +90,7 @@ export default {
 .main-box {
   padding: 127px 0 77px;
   background: linear-gradient(122deg, #100d2c 11%, #3c27a6 45%, #7c3cb6 73%, #3b5ccd 88%);
-  min-height: calc(100vh - $navheight);
+  min-height: calc(100vh - #{$navHeight});
   .main-content {
     display: flex;
     flex-direction: column;
@@ -164,9 +164,12 @@ export default {
             animation-play-state: paused;
           }
           .main-logo-item {
-            width: max-content;
+            width: auto;
             height: 70px;
             margin: 0 65px;
+            img {
+              width: auto;
+            }
             &:first-child {
               margin-left: 0;
             }
