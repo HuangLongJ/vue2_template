@@ -13,6 +13,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // 字体包预加载
+      { rel: 'preload', href: '/fonts/Fontfabric-UniNeueRegular.woff', as: 'font', crossorigin: 'anonymous' },
+      { rel: 'preload', href: '/fonts/Fontfabric-UniNeueRegular.ttf', as: 'font', crossorigin: 'anonymous' },
+      { rel: 'preload', href: '/fonts/Playball-Regular.woff', as: 'font', crossorigin: 'anonymous' },
+      { rel: 'preload', href: '/fonts/Playball-Regular.ttf', as: 'font', crossorigin: 'anonymous' },
+      // 字体加载
       { rel: 'stylesheet', href: '/css/fonts.css' }
     ],
     script: [

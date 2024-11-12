@@ -10,32 +10,32 @@ export default {
     list () {
       return [
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem1.png'),
+          src: '/images/components/homePage/introduceThreeItem1.png',
           title: 'Content Management',
           tip: 'Quickly generate，publish, promote and analyze personalized marketing content using JING AI'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem2.png'),
+          src: '/images/components/homePage/introduceThreeItem2.png',
           title: 'Event Management',
           tip: 'Full process management of webinar and off-line events'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem3.png'),
+          src: '/images/components/homePage/introduceThreeItem3.png',
           title: 'E-Commerce',
           tip: 'Integrate with e-commerce platforms and enhance repeat purchases'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem4.png'),
+          src: '/images/components/homePage/introduceThreeItem4.png',
           title: 'Distributor Enablement',
           tip: 'Provide intelligent marketing support for distributors and make collaboration with distributors more efficient'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem5.png'),
+          src: '/images/components/homePage/introduceThreeItem5.png',
           title: 'Leads Nurturing',
           tip: 'Personalized nurturing of sales leads across different stages of their lifecycle to uplift business results'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItem6.png'),
+          src: '/images/components/homePage/introduceThreeItem6.png',
           title: 'Sales Enablement',
           tip: 'Seamless integration of marketing data in sales process to increase sales efficiency and create measurable business results'
         },
@@ -61,20 +61,20 @@ export default {
     swiperList () {
       return [
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItemTwo1.png'),
-          logoSrc: require('~/assets/images/components/homePage/introduceThreeItemTwoLogo1.png'),
+          src: '/images/components/homePage/introduceThreeItemTwo1.png',
+          logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo1.png',
           title: `By using <span>JINGdigital's</span> potential customer management tool, we can manage potential customer information more effectively. With personalized communication and follow-up strategies, we have significantly improved our conversion efficiency, facilitating a smooth flow through the sales funnel.`,
           tip: 'John<br/>Marketing Director, Greater China'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItemTwo2.png'),
-          logoSrc: require('~/assets/images/components/homePage/introduceThreeItemTwoLogo2.png'),
+          src: '/images/components/homePage/introduceThreeItemTwo2.png',
+          logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo2.png',
           title: `<span>JINGdigital's</span> product capabilities are industry-leading, with a strong focus on the B2B sector and offering comprehensive features for marketing and conversion. The Jingshuo team always prioritizes customers above all else.`,
           tip: 'Shi<br/>DI Division'
         },
         {
-          src: require('~/assets/images/components/homePage/introduceThreeItemTwo3.png'),
-          logoSrc: require('~/assets/images/components/homePage/introduceThreeItemTwoLogo3.png'),
+          src: '/images/components/homePage/introduceThreeItemTwo3.png',
+          logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo3.png',
           title: `<span>JINGdigital's</span> marketing automation solutions have significantly improved our marketing efficiency, with the growth in our business data being the strongest evidence of this.`,
           tip: 'Laura<br/>Marketing Director'
         },
@@ -87,12 +87,12 @@ export default {
             <div class="swiper2-slide-item" key={index}>
               <div class="swiper2-slide-item-left">
                 <div class="swiper2-slide-item-left-logo1">
-                  <img src={require('~/assets/images/components/homePage/introduceThreeItemTwoMain1.png')} />
+                  <img src={'/images/components/homePage/introduceThreeItemTwoMain1.png'} />
                 </div>
                 <div class="swiper2-slide-item-left-title big-title-tip" domPropsInnerHTML={item.title}></div>
                 <div class="swiper2-slide-item-left-tip big-title-tip" domPropsInnerHTML={item.tip}></div>
                 <div class="swiper2-slide-item-left-logo2">
-                  <img src={require('~/assets/images/components/homePage/introduceThreeItemTwoMain2.png')} />
+                  <img src={'/images/components/homePage/introduceThreeItemTwoMain2.png'} />
                 </div>
               </div>
               <div class="swiper2-slide-item-right">

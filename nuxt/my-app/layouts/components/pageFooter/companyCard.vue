@@ -18,7 +18,7 @@ export default {
           <button class="btn-plain">Get started free</button>
         </div>
         <div class="footer-card-bgImg">
-          <img src={require('~/assets/images/components/caseStudies/pageFooter2.png')} />
+          <img src={'/images/components/caseStudies/pageFooter2.png'} />
         </div>
       </div>
     )

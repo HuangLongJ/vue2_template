@@ -10,25 +10,25 @@ export default {
     logoList () {
       const img = [
         {
-          src: require('~/assets/images/logo/dell.png')
+          src: '/images/logo/dell.png'
         },
         {
-          src: require('~/assets/images/logo/amazon.png')
+          src: '/images/logo/amazon.png'
         },
         {
-          src: require('~/assets/images/logo/sap.png')
+          src: '/images/logo/sap.png'
         },
         {
-          src: require('~/assets/images/logo/siemens.png')
+          src: '/images/logo/siemens.png'
         },
         {
-          src: require('~/assets/images/logo/signify.png')
+          src: '/images/logo/signify.png'
         },
         {
-          src: require('~/assets/images/logo/sanofi.png')
+          src: '/images/logo/sanofi.png'
         },
         {
-          src: require('~/assets/images/logo/in.png')
+          src: '/images/logo/in.png'
         }
       ]
       return img.concat(img)
@@ -36,7 +36,7 @@ export default {
     imgRender () {
       return (className) => (
         <div class={className}>
-          <img src={require('~/assets/images/components/homePage/mainContent.png')} />
+          <img src={'/images/components/homePage/mainContent.png'} />
         </div>
       )
     }

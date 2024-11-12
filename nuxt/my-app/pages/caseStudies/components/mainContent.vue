@@ -30,7 +30,7 @@ export default {
               <btnBtns config={{ btnText1: "Get started free" }} />
             </div>
             <div class="main-right">
-              <img src={require('~/assets/images/components/caseStudies/mainContent.png')} />
+              <img src={'/images/components/caseStudies/mainContent.png'} />
             </div>
           </div>
 

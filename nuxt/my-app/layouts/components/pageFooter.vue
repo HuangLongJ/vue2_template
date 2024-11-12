@@ -12,23 +12,23 @@ export default {
     logos () {
       return [
         {
-          src: require('~/assets/images/logo/Facebook.png'),
+          src: '/images/logo/Facebook.png',
           path: ''
         },
         {
-          src: require('~/assets/images/logo/Twitter.png'),
+          src: '/images/logo/Twitter.png',
           path: ''
         },
         {
-          src: require('~/assets/images/logo/LinkedIn.png'),
+          src: '/images/logo/LinkedIn.png',
           path: ''
         },
         {
-          src: require('~/assets/images/logo/Instagram.png'),
+          src: '/images/logo/Instagram.png',
           path: ''
         },
         {
-          src: require('~/assets/images/logo/YouTube.png'),
+          src: '/images/logo/YouTube.png',
           path: ''
         }
       ]
@@ -86,7 +86,7 @@ export default {
               </div>
               <div class="footer-bottom-base">
                 <div class="footer-bottom-base-left">
-                  <img src={require('~/assets/images/logo/whiteLogo.png')} />
+                  <img src={'/images/logo/whiteLogo.png'} />
                 </div>
                 <div class="footer-bottom-base-right">
                   <div class="footer-bottom-base-logos">

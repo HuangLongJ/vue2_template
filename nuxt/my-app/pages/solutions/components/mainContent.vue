@@ -30,7 +30,7 @@ export default {
               <btnBtns />
             </div>
             <div class="main-right">
-              <img src={require('~/assets/images/components/solutions/mainContent.png')} />
+              <img src={'/images/components/solutions/mainContent.png'} />
             </div>
           </div>
 

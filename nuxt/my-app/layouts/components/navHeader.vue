@@ -40,7 +40,7 @@ export default {
           <div class="nav-box-content">
             <div class="nav-left">
               <div class="nav-logo" onClick={() => this.routerPush({ path: '/homePage' }, 'closeMenu')}>
-                <img src={require('~/assets/images/logo/logo.png')} />
+                <img src={'/images/logo/logo.png'} />
               </div>
               <div class="nav-content">
                 {this.list.map((item, index) =>
@@ -69,7 +69,7 @@ export default {
               <button class="btn-custom-nav">Get a demo</button>
               {this.langRender}
               <div class="nav-menu-icon" onClick={this.showMenuHander}>
-                <img src={require('~/assets/images/icon/menu-add-fill.png')} />
+                <img src={'/images/icon/menu-add-fill.png'} />
               </div>
             </div>
             <transition name="fade">
@@ -77,7 +77,7 @@ export default {
                 {this.list.map((item, index) => <div class={['nav-menu-item', { active: this.$route.path === item.path }]} key={index} onClick={() => this.routerPush({ path: item.path }, 'closeMenu')}>
                   {item.name}
                   <div class="nav-menu-icon">
-                    <img src={require('~/assets/images/icon/arrow-right.png')} />
+                    <img src={'/images/icon/arrow-right.png'} />
                   </div>
                 </div>)}
                 {this.langRender}

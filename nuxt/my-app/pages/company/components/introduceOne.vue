@@ -38,12 +38,12 @@ export default {
     twoList () {
       return [
         {
-          src: require('~/assets/images/components/company/introduceOneItem1.png'),
+          src: '/images/components/company/introduceOneItem1.png',
           title: 'Kai<br/>Co-founder & CEO',
           tip: "Kai Hong, co-founder and CEO of JINGdigital, has more than 20 years of experience in strategy, marketing and entrepreneurship. Kai founded one of the leading Financial Technology Services Company in China. Kai has also worked for Siemens, Bain & Company, and served as Senior Vice President, Cisco China. Kai holds MBA from Wharton School of Business, MA from University of Pennsylvania and MSc from TH Aachen, Germany."
         },
         {
-          src: require('~/assets/images/components/company/introduceOneItem2.png'),
+          src: '/images/components/company/introduceOneItem2.png',
           title: 'Kun<br/>Co-founder & President',
           tip: "Kun Hsu is co-founder and president of JINGdigital. Kun has invested in 8 companies in the field of technology and education technology, and served as a board member in 3 of them. Before JINGdigital, Kun has worked in the software industry at Microsoft, consulted multinationals on market entry strategies into China while at Bain & Co.. Moreover, in cooperation with Kai, Kun successfully founded and operated one of the leading Financial Technology Services Company in China. Kun has an MBA from INSEAD, MA in International Relations from John Hopkins University and BSc from the Wharton School of the University of Pennsylvania."
         }
@@ -52,7 +52,7 @@ export default {
     threeList () {
       const data = [
         {
-          src: require('~/assets/images/components/company/introduceOneItem3.png'),
+          src: '/images/components/company/introduceOneItem3.png',
         },
         {
           title: 'SHANGHAI',
@@ -81,19 +81,19 @@ export default {
     fourList () {
       return [
         {
-          src: require('~/assets/images/icon/file-edit-fill.png'),
+          src: '/images/icon/file-edit-fill.png',
           title: 'ENTREPRENEURSHIP'
         },
         {
-          src: require('~/assets/images/icon/empathize-fill.png'),
+          src: '/images/icon/empathize-fill.png',
           title: 'EMPATHY'
         },
         {
-          src: require('~/assets/images/icon/contacts-fill.png'),
+          src: '/images/icon/contacts-fill.png',
           title: 'CUSTOMER FIRST'
         },
         {
-          src: require('~/assets/images/icon/chat-settings-fill.png'),
+          src: '/images/icon/chat-settings-fill.png',
           title: 'POSITIVITY'
         }
       ]
@@ -182,7 +182,7 @@ export default {
                       (
                         <div class="item-three-box-list-item-text">
                           <div class="item-three-box-list-item-text-icon">
-                            <img src={require('~/assets/images/icon/map-pin-fill.png')} />
+                            <img src={'/images/icon/map-pin-fill.png'} />
                           </div>
                           <div class="item-three-box-list-item-text-main">
                             <div class="item-three-box-list-item-text-title small-title" domPropsInnerHTML={item.title}></div>

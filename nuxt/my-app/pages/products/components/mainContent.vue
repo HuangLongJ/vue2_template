@@ -10,7 +10,7 @@ export default {
     return (
       <div class="main-box container-box">
         <div class="main-box-bg">
-          <img src={require('~/assets/images/components/products/mainContent.png')} />
+          <img src={'/images/components/products/mainContent.png'} />
         </div>
         <div class="main-content container-content">
           <div class="main-title">JINGdigitl Products</div>
@@ -38,6 +38,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 100%;
+    max-width: 1440px;
   }
   .main-content {
     display: flex;
