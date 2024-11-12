@@ -40,6 +40,9 @@ export default {
     await this.$nextTick()
     Array.from(document.querySelectorAll('button')).forEach((item) => {
       item.addEventListener('click', () => {
+        if (!this.ctaReady) {
+          alert('cta还未加载完成')
+        }
         this.startCtaHandler()
       })
     })

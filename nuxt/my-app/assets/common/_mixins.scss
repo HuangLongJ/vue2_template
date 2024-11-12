@@ -4,20 +4,3 @@
     @content;
   }
 }
-// navbar
-@mixin navbar {
-  @media screen and (max-width: 1250px) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media screen and (max-width: 1440px) {
-    @content;
-  }
-}
-
-@mixin pc {
-  @media screen and (max-width: 1000px) {
-    @content;
-  }
-}

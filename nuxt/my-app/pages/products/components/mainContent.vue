@@ -28,7 +28,7 @@ export default {
 .main-box {
   padding-top: 120px;
   background-color: #fff;
-  min-height: calc(100vh - #{$navHeight});
+  /* min-height: calc(100vh - #{$navHeight}); */
   height: 755px;
   position: relative;
   background-color: #fafafa;

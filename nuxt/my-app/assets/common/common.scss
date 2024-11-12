@@ -112,9 +112,6 @@ $navHeight: 104px;
 .container-content {
   max-width: 1250px;
   width: 100%;
-  @include desktop {
-    max-width: 1166px;
-  }
   @include phone {
     max-width: 575px;
   }

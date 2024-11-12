@@ -140,7 +140,7 @@ export default {
         gap: 75px;
         margin-left: 70px;
         height: 100%;
-        @include navbar {
+        @include phone {
           display: none;
         }
         .nav-item {
@@ -218,7 +218,7 @@ export default {
       .lang {
         margin-left: 25px;
         @include lang;
-        @include navbar {
+        @include phone {
           display: none;
         }
       }
@@ -228,7 +228,7 @@ export default {
         height: 44px;
         margin-left: 25px;
         cursor: pointer;
-        @include navbar {
+        @include phone {
           display: block;
         }
       }
