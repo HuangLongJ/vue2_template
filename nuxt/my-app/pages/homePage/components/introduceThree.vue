@@ -50,8 +50,8 @@ export default {
                 <img src={item.src} />
               </div>
               <div class="swiper-slide-item-content">
-                <div class="swiper-slide-item-title small-title">{item.title}</div>
-                <div class="swiper-slide-item-tip small-title-tip">{item.tip}</div>
+                <div class="swiper-slide-item-title">{item.title}</div>
+                <div class="swiper-slide-item-tip">{item.tip}</div>
               </div>
             </div>
           )
@@ -166,15 +166,14 @@ export default {
     .swiper2-slide-item {
       width: 100%;
       height: 100%;
-      padding: 62px 0;
+      padding: 62px 0 62px 10px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 400px;
       gap: 100px;
       .swiper2-slide-item-left {
         position: relative;
-        max-width: 692px;
-        min-width: 360px;
         border-radius: 20px;
+        min-height: 360px;
         background: #ffffff;
         box-shadow: 0px 4px 20px 0px rgba(210, 215, 228, 0.5);
         padding: 46px 43px 37px;
@@ -194,18 +193,20 @@ export default {
         .swiper2-slide-item-left-logo1 {
           top: 0;
           left: 43px;
-          transform: translateY(-80%);
+          transform: translateY(-70%);
         }
         .swiper2-slide-item-left-logo2 {
           bottom: 0;
           right: 43px;
-          transform: translateY(80%);
+          transform: translateY(70%);
         }
         .swiper2-slide-item-left-title {
           font-weight: 400;
           text-align: center;
-          color: #280071;
+          color: #333333;
           font-family: Playball;
+          font-size: 24px;
+          line-height: 36px;
           ::v-deep span {
             font-weight: 700;
             font-family: Playball;
@@ -220,11 +221,10 @@ export default {
       }
       .swiper2-slide-item-right {
         height: 100%;
-        min-width: 360px;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         .swiper2-slide-item-right-logo {
-          width: 50%;
+          width: 230px;
           position: absolute;
           top: 0;
           right: 0px;
@@ -236,7 +236,7 @@ export default {
         }
         .swiper2-slide-item-right-img {
           position: relative;
-          width: 100%;
+          height: 300px;
         }
       }
     }
@@ -257,6 +257,16 @@ export default {
   }
   .swiper-slide-item-title {
     margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #8847ff;
+  }
+  .swiper-slide-item-tip {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #000000;
   }
 }
 @include phone {
@@ -266,7 +276,12 @@ export default {
         grid-template-columns: repeat(1, 1fr);
         .swiper2-slide-item-right {
           .swiper2-slide-item-right-logo {
+            width: 250px;
             left: 0;
+          }
+          .swiper2-slide-item-right-img {
+            width: 100%;
+            height: 100%;
           }
         }
       }

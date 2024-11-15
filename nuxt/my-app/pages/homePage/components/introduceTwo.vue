@@ -60,10 +60,10 @@ export default {
             <div class="item-box-item-img">
               <img src={item.src} />
             </div>
-            <div class="item-box-item-title small-title">
+            <div class="item-box-item-title medium-title">
               {item.title}
             </div>
-            <div class="item-box-item-tip small-title-tip">
+            <div class="item-box-item-tip medium-title-tip">
               {item.tip}
             </div>
           </div>
@@ -163,10 +163,11 @@ export default {
         .item-box {
           display: flex;
           flex-direction: column;
+          align-items: center;
           justify-content: space-between;
           .item-box-img {
-            max-width: 532px;
-            max-height: 542px;
+            width: 532px;
+            height: 542px;
           }
           .item-box-btns {
             margin-top: 60px;
@@ -183,6 +184,11 @@ export default {
             }
             .item-box-item-title {
               margin-bottom: 8px;
+              font-size: 28px;
+              line-height: 40px;
+            }
+            .item-box-item-tip {
+              line-height: 33px;
             }
           }
         }
@@ -196,6 +202,10 @@ export default {
       .list {
         .item {
           grid-template-columns: repeat(1, 1fr);
+          &:first-child {
+            display: flex;
+            flex-direction: column-reverse;
+          }
           .item-box {
             .item-box-item {
               display: flex;

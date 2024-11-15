@@ -16,6 +16,7 @@ import navHeader from './components/navHeader.vue';
 import introduceFour from './components/introduceFour.vue';
 import pageFooter from './components/pageFooter.vue';
 import initCta from '@/common/mixins/initCta.js';
+// import scrollToModule from '@/common/mixins/scrollToModule.js';
 import _ from 'lodash'
 export default {
   name: "App",
@@ -62,14 +63,11 @@ export default {
 <style scoped lang="scss">
 #app {
   width: 100%;
-  min-width: 1000px;
   min-height: 100vh;
   overflow: auto;
   position: relative;
   font-family: Uni Neue;
   letter-spacing: 0px;
-  @include phone {
-    min-width: 0;
-  }
+  scroll-behavior: smooth;
 }
 </style>

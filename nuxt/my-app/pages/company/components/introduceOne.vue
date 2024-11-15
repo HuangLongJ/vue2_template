@@ -66,14 +66,14 @@ export default {
           title: 'SHENZHEN',
           tip: '5F, UpperHills South Distrct, Loft B, No.5001 Huanggang Rd.,<br/>Futian District, Shenzhen<br/>Guangdong, Shenzhen, China'
         },
-        {
-          title: 'USA',
-          tip: '缺地址<br/>详细地址<br/>有了再加'
-        },
-        {
-          title: 'Germany',
-          tip: '缺地址<br/>详细地址<br/>有了再加'
-        }
+        // {
+        //   title: 'USA',
+        //   tip: '缺地址<br/>详细地址<br/>有了再加'
+        // },
+        // {
+        //   title: 'Germany',
+        //   tip: '缺地址<br/>详细地址<br/>有了再加'
+        // }
       ]
       data.unshift(data[1])
       return data
@@ -351,24 +351,20 @@ export default {
           }
         }
         .item-three-box {
-          padding: 40px 100px 16px 80px;
+          padding: 40px 80px 16px;
           background: #fafafa;
           border-radius: 20px;
           .item-three-box-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 105px;
+            gap: 45px;
             row-gap: 0;
             .item-three-box-list-item {
               &:nth-child(3) {
                 display: none;
               }
-              &:nth-child(6) {
-                .item-three-box-list-item-text {
-                  border: none;
-                }
-              }
-              &:nth-child(7) {
+              &:nth-last-child(1),
+              &:nth-last-child(2) {
                 .item-three-box-list-item-text {
                   border: none;
                 }
@@ -489,18 +485,10 @@ export default {
                     padding-top: 0;
                   }
                 }
-                &:nth-child(6) {
+                &:nth-last-child(2) {
                   .item-three-box-list-item-text {
                     border-bottom: 1px solid #d8d8d8;
                   }
-                }
-                &:nth-child(7) {
-                  .item-three-box-list-item-text {
-                    padding-bottom: 0;
-                  }
-                }
-                .item-three-box-list-item-img {
-                  margin-bottom: 0;
                 }
               }
             }

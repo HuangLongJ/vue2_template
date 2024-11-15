@@ -87,7 +87,7 @@ export default {
       ::v-deep {
         .box-btns {
           .btn-primary {
-            border-radius: 36px;
+            border-radius: 100px;
           }
           .btn-plain {
             display: none;

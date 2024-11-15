@@ -58,10 +58,10 @@ export default {
                   <div class="list-item-img">
                     <img src={item.src} />
                   </div>
-                  <div class="list-item-title small-title">
+                  <div class="list-item-title medium-title">
                     {item.title}
                   </div>
-                  <div class="list-item-tip small-title-tip">
+                  <div class="list-item-tip medium-title-tip">
                     {item.tip}
                   </div>
                 </div>
@@ -104,6 +104,7 @@ export default {
           height: 192px;
         }
         .list-item-title {
+          min-height: 3em;
           padding: 0 16px;
           margin-top: 48px;
         }
@@ -128,6 +129,7 @@ export default {
             height: 400px;
           }
           .list-item-title {
+            min-height: 0;
             padding: 0 39px;
           }
           .list-item-tip {

@@ -160,8 +160,9 @@ export default {
         align-items: center;
         padding: 60px 0 70px;
         .footer-bottom-base-left {
-          width: 329px;
-          height: 94px;
+          width: 240px;
+          height: 70px;
+          align-self: flex-end;
         }
         .footer-bottom-base-right {
           font-size: 18px;

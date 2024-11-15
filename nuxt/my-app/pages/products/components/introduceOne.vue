@@ -144,14 +144,11 @@ export default {
         }
       }
       .item {
-        padding: 120px 0;
+        padding: 0 0 120px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 75px;
 
-        .item-box-img {
-          max-height: 582px;
-        }
         .item-box-text {
           display: flex;
           flex-direction: column;

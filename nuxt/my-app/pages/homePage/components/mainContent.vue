@@ -88,7 +88,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .main-box {
-  padding: 127px 0 77px;
+  padding: 50px 0 30px;
   background: linear-gradient(122deg, #100d2c 11%, #3c27a6 45%, #7c3cb6 73%, #3b5ccd 88%);
   min-height: calc(100vh - #{$navHeight});
   .main-content {
@@ -100,15 +100,15 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
       .main-left {
         flex: 1;
-        max-width: 616px;
-        min-height: 476px;
+        width: 616px;
+        height: 476px;
         margin-right: 105px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: all 0.3s;
         .main-title {
           font-size: 56px;
           font-weight: bold;
@@ -127,15 +127,15 @@ export default {
         }
       }
       .main-right {
-        max-width: 529px;
-        max-height: 476px;
+        width: 529px;
+        height: 476px;
       }
     }
     .main-bottom {
       display: flex;
       justify-content: flex-start;
       height: 72px;
-      margin-top: 90px;
+      margin-top: 45px;
       width: 100%;
       .main-bottom-left {
         width: 311px;
@@ -197,15 +197,34 @@ export default {
 }
 @include phone {
   .main-box {
+    min-height: 0;
     .main-content {
       .main-top {
         .main-left {
+          width: 100%;
+          height: auto;
           margin: 0;
-          max-width: none;
-          min-height: none;
+          .main-title {
+            margin-bottom: 20px;
+          }
+          .main-tip {
+            margin-bottom: 40px;
+          }
         }
         .main-right {
           display: none;
+        }
+      }
+      .main-bottom {
+        .main-bottom-right {
+          .main-logo-box {
+            .main-logo-item {
+              margin: 0 30px;
+              &:last-child {
+                margin-right: 60px;
+              }
+            }
+          }
         }
       }
       .moblie-main-right {

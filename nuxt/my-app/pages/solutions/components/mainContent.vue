@@ -44,7 +44,7 @@ export default {
 .main-box {
   padding: 140px 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f1f3ff 99%);
-  min-height: calc(100vh - #{$navHeight});
+  /* min-height: calc(100vh - #{$navHeight}); */
   .main-content {
     display: flex;
     flex-direction: column;
@@ -58,7 +58,6 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: all 0.3s;
         .main-title {
           font-size: 56px;
           font-weight: bold;
@@ -85,6 +84,7 @@ export default {
 @include phone {
   .main-box {
     padding: 90px 0 54px;
+    min-height: 0;
     .main-content {
       .main-top {
         display: grid;
@@ -101,7 +101,7 @@ export default {
             .box-btns {
               justify-content: center;
               .btn-primary {
-                border-radius: 30px;
+                border-radius: 100px;
               }
               .btn-plain {
                 display: none;

@@ -144,8 +144,8 @@ export default {
             grid-gap: 28px;
             margin-bottom: 50px;
             .item-box-img {
-              width: 400px;
-              height: 190px;
+              width: calc(100% - 20px);
+              height: calc(100% - 30px);
               position: relative;
               img {
                 position: relative;
@@ -196,8 +196,8 @@ export default {
               grid-template-columns: 1fr;
               grid-gap: 0;
               .item-box-img {
-                width: 548px;
-                height: 278px;
+                width: calc(100% - 28px);
+                height: calc(100% - 45px);
                 .item-box-img-style {
                   transform: translate(28px, 45px);
                 }

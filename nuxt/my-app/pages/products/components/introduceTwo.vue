@@ -50,8 +50,8 @@ export default {
                 <img src={item.src} />
               </div>
               <div class="swiper-slide-item-content">
-                <div class="swiper-slide-item-title small-title">{item.title}</div>
-                <div class="swiper-slide-item-tip small-title-tip">{item.tip}</div>
+                <div class="swiper-slide-item-title">{item.title}</div>
+                <div class="swiper-slide-item-tip">{item.tip}</div>
               </div>
             </div>
           )
@@ -167,6 +167,16 @@ export default {
   }
   .swiper-slide-item-title {
     margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #8847ff;
+  }
+  .swiper-slide-item-tip {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #000000;
   }
 }
 @include phone {

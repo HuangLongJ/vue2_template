@@ -49,4 +49,11 @@ export default {
     margin-left: 88px;
   }
 }
+@include phone {
+  .box-btns {
+    button + button {
+      margin-left: 40px;
+    }
+  }
+}
 </style>
