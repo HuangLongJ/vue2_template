@@ -11,8 +11,8 @@ export default {
       <div class="main">
         <div class="main-box container-box">
           <div class="main-box-bg">
-            <img class="pc" src={'/images/components/company/mainContent1.png'} />
-            <img class="moblie" src={'/images/components/company/mainContent2.png'} />
+            <img class="pc" src={'/images/components/company/mainContent1.png'} alt="Background image" />
+            <img class="moblie" src={'/images/components/company/mainContent2.png'} alt="Background image" />
           </div>
           <div class="main-content container-content">
             <div class="main-title">Empowering B2B Marketers To Make An Impact On Revenue</div>

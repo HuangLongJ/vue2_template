@@ -42,7 +42,7 @@ export function loadCTA () {
   if (sdkLoadPms) return sdkLoadPms
   const arr = sdkDependencies.map((item) => ({
     ...item,
-    url: 'https://dev.jingsocial.com' + item.url
+    url: 'https://app.jingsocial.com' + item.url
   }))
 
   const pmsArr = arr.map((config) => {

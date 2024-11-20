@@ -44,7 +44,7 @@ export default {
     imgRender () {
       return (img) => (
         <div class="item-box-img">
-          <img src={img} />
+          <img src={img} alt='B2B Marketing Technology' />
         </div>
       )
     },

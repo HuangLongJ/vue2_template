@@ -2,6 +2,7 @@
 <script>
 export default {
   name: "defaultCard",
+  inject: ['root'],
   components: {},
   props: {},
   data () {
@@ -16,7 +17,7 @@ export default {
         <div class="footer-card-box">
           <div class="footer-card-title">Next generation marketing technology to enhance customer experience and improve marketing effectiveness</div>
           <div class="footer-card-tip">Helping over 500 leading B2B companies achieved sustained business growth</div>
-          <button class="btn-primary">Get a demo</button>
+          <button class="btn-primary" data-btnType="bottomDemoBtn" onClick={this.root.startCtaHandler}>Get a demo</button>
         </div>
         <div class="footer-card-bgImg">
           <img src={'/images/components/homePage/pageFooter1.png'} />
@@ -37,7 +38,7 @@ export default {
   .footer-card-box {
     position: relative;
     z-index: 1;
-    width: 60%;
+    width: 68%;
     height: 100%;
     padding: 48px 0 60px 70px;
     display: flex;
@@ -84,9 +85,9 @@ export default {
         margin-bottom: 22px;
       }
       .btn-primary {
-        min-width: 0;
-        height: 37px;
-        font-size: 20px;
+        min-width: 300px;
+        height: 70px;
+        font-size: 30px;
       }
     }
   }

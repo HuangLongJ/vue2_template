@@ -3,17 +3,28 @@ import { navList } from '@/common/config/navConfig.js';
 
 export default {
   name: 'navHeader',
+  inject: ['root'],
   data () {
     return {
       showMenu: false
+    }
+  },
+  head () {
+    return {
+      htmlAttrs: {
+        lang: this.$route.params.lang
+      },
     }
   },
   computed: {
     list () {
       return navList
     },
+    lang () {
+      return this.$route.params.lang || 'en'
+    },
     langRender () {
-      return <div class="lang">CN</div>
+      return <div class="lang" onClick={this.clickLang}>EN</div>
     }
   },
   asyncData (data) {
@@ -23,6 +34,9 @@ export default {
 
   },
   methods: {
+    clickLang () {
+      this.$router.replace({ path: '/' })
+    },
     showMenuHander () {
       this.showMenu = !this.showMenu
     },
@@ -39,21 +53,21 @@ export default {
         <div class="nav-box-content container-box">
           <div class="nav-box-main container-content">
             <div class="nav-left">
-              <div class="nav-logo" onClick={() => this.routerPush({ path: '/homePage' }, 'closeMenu')}>
-                <img src={'/images/logo/logo.png'} />
+              <div class="nav-logo" onClick={() => this.routerPush({ path: `/${this.lang}/` }, 'closeMenu')}>
+                <img src={'/images/logo/logo.png'} alt="image" />
               </div>
               <div class="nav-content">
                 {this.list.map((item, index) =>
                   <div class="nav-item" key={index}>
-                    <NuxtLink to={{ path: item.path }}>
-                      <div class={['nav-item-title', { active: this.$route.path === item.path }]}>
+                    <NuxtLink to={{ path: `/${this.lang}/${item.path}/` }}>
+                      <div class={['nav-item-title', { active: this.$route.path === `/${this.lang}/${item.path}/` }]}>
                         {item.name}
                       </div>
                     </NuxtLink>
                     <div class="nav-item-select">
                       {
                         item.children && item.children.map((items, i) => (
-                          <div class="nav-item-select-item" key={i} onClick={() => this.$router.push({ path: item.path + '#' + items.target })}>
+                          <div class="nav-item-select-item" key={i} onClick={() => this.$router.push({ path: `/${this.lang}/${item.path}/`, hash: '#' + items.target })}>
                             {items.title}
                           </div>
                         ))
@@ -64,7 +78,7 @@ export default {
               </div>
             </div>
             <div class="nav-right">
-              <button class="btn-custom-nav">Get a demo</button>
+              <button class="btn-custom-nav" data-btnType="navDemoBtn" onClick={this.root.startCtaHandler} >Get a demo</button>
               {this.langRender}
               <div class="nav-menu-icon" onClick={this.showMenuHander}>
                 <img src={'/images/icon/menu-add-fill.png'} />
@@ -72,7 +86,7 @@ export default {
             </div>
             <transition name="fade">
               <div class="nav-menu" v-show={this.showMenu}>
-                {this.list.map((item, index) => <div class={['nav-menu-item', { active: this.$route.path === item.path }]} key={index} onClick={() => this.routerPush({ path: item.path }, 'closeMenu')}>
+                {this.list.map((item, index) => <div class={['nav-menu-item', { active: this.$route.path === `/${this.lang}/${item.path}/` }]} key={index} onClick={() => this.routerPush({ path: `/${this.lang}/${item.path}/` }, 'closeMenu')}>
                   {item.name}
                   <div class="nav-menu-icon">
                     <img src={'/images/icon/arrow-right.png'} />

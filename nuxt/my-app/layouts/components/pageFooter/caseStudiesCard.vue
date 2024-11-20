@@ -2,6 +2,7 @@
 <script>
 export default {
   name: "caseStudiesCard",
+  inject: ['root'],
   components: {},
   props: {},
   data () {
@@ -15,7 +16,7 @@ export default {
       <div class="case-studies-card">
         <div class="case-studies-card-box">
           <div class="case-studies-card-box-title">Let's talk about what JINGdigital can do for your business.</div>
-          <button class="btn-plain">TALK TO AN EXPERT</button>
+          <button class="btn-plain" data-btnType="talkBtn" onClick={this.root.startCtaHandler}>TALK TO AN EXPERT</button>
         </div>
         <div class="footer-card-bgImg">
           <img src={'/images/components/caseStudies/pageFooter2.png'} />
@@ -73,10 +74,9 @@ export default {
         line-height: 48px;
       }
       .btn-plain {
-        min-width: 0;
-        height: 33px;
-        font-size: 14px;
-        padding: 0 20px;
+        min-width: 242px;
+        height: 56px;
+        font-size: 26px;
       }
     }
   }

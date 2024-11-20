@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'mainContent',
+  inject: ['root'],
   data () {
     return {
 
@@ -36,7 +37,7 @@ export default {
     imgRender () {
       return (className) => (
         <div class={className}>
-          <img src={'/images/components/homePage/mainContent.png'} />
+          <img src={'/images/components/homePage/mainContent.png'} alt="B2B Marketing Technology Platform" />
         </div>
       )
     }
@@ -61,7 +62,7 @@ export default {
                 Improving marketing efficiency and business performance - social media based, real time personalization,
                 sales-marketing alignment, and AI-driven
               </div>
-              <button class="btn-custom-main">Get started free</button>
+              <button class="btn-custom-main" data-btnType="freeBtn" onClick={this.root.startCtaHandler}>Get started free</button>
             </div>
             {this.imgRender('main-right')}
           </div>
@@ -233,7 +234,7 @@ export default {
     }
     .main-bottom {
       .main-bottom-right {
-        margin-right: -15%;
+        margin-right: -5%;
       }
     }
   }

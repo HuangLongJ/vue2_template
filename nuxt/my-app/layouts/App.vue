@@ -37,22 +37,11 @@ export default {
 
     };
   },
-  async mounted () {
-    await this.$nextTick()
-    Array.from(document.querySelectorAll('button')).forEach((item) => {
-      item.addEventListener('click', () => {
-        if (!this.ctaReady) {
-          alert('cta还未加载完成')
-        }
-        this.startCtaHandler()
-      })
-    })
+  mounted () {
   },
-  computed: {},
+  computed: {
+  },
   methods: {
-    startCtaHandler () {
-      this.ctaInstance && this.ctaInstance.start()
-    },
     // 头部尾部导航跳转
     navigationTo (data) {
       this.$router.push(data)

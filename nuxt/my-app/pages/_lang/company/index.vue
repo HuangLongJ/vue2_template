@@ -4,33 +4,38 @@
     <mainContent />
     <!-- 介绍一 -->
     <introduceOne />
-    <!-- 介绍二 -->
-    <introduceTwo />
   </div>
 </template>
 
 <script>
 import mainContent from './components/mainContent.vue';
 import introduceOne from './components/introduceOne.vue';
-import introduceTwo from './components/introduceTwo.vue';
+import head from '@/common/head/index.js'
 
 export default {
-  name: 'products',
+  name: 'company',
   layout: 'App',
   inject: ['root'],
+  head () {
+    return head(this.$options.name)
+  },
   data () {
     return {
+
     }
   },
   components: {
     mainContent,
-    introduceOne,
-    introduceTwo
+    introduceOne
+  },
+  computed: {
+
   },
   asyncData (data) {
 
   },
   mounted () {
+
   },
   methods: {
 

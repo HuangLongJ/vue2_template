@@ -7,7 +7,7 @@ export default {
         <div class="content container-content">
           <div class="title big-title">Serving over 500 leading global B2B companies</div>
           <div class="img">
-            <img src={'/images/components/homePage/introduceFour1.png'} alt="" />
+            <img src={'/images/components/homePage/introduceFour1.png'} alt="Customer logo wall" />
           </div>
         </div>
       </div>

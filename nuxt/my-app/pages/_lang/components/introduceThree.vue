@@ -47,7 +47,7 @@ export default {
           render: (
             <div class="swiper-slide-item" key={index}>
               <div class="swiper-slide-item-img">
-                <img src={item.src} />
+                <img src={item.src} alt={item.title} />
               </div>
               <div class="swiper-slide-item-content">
                 <div class="swiper-slide-item-title">{item.title}</div>
@@ -62,18 +62,21 @@ export default {
       return [
         {
           src: '/images/components/homePage/introduceThreeItemTwo1.png',
+          alt: 'Impact Ccustomer Testimony',
           logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo1.png',
           title: `By using <span>JINGdigital's</span> potential customer management tool, we can manage potential customer information more effectively. With personalized communication and follow-up strategies, we have significantly improved our conversion efficiency, facilitating a smooth flow through the sales funnel.`,
           tip: 'John<br/>Marketing Director, Greater China'
         },
         {
           src: '/images/components/homePage/introduceThreeItemTwo2.png',
+          alt: 'Siemens Ccustomer Testimony',
           logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo2.png',
           title: `<span>JINGdigital's</span> product capabilities are industry-leading, with a strong focus on the B2B sector and offering comprehensive features for marketing and conversion. The Jingshuo team always prioritizes customers above all else.`,
           tip: 'Shi<br/>DI Division'
         },
         {
           src: '/images/components/homePage/introduceThreeItemTwo3.png',
+          alt: 'Intertek Ccustomer Testimony',
           logoSrc: '/images/components/homePage/introduceThreeItemTwoLogo3.png',
           title: `<span>JINGdigital's</span> marketing automation solutions have significantly improved our marketing efficiency, with the growth in our business data being the strongest evidence of this.`,
           tip: 'Laura<br/>Marketing Director'
@@ -100,7 +103,7 @@ export default {
                   <div class="swiper2-slide-item-right-logo">
                     <img src={item.logoSrc} />
                   </div>
-                  <img src={item.src} />
+                  <img src={item.src} alt={item.alt} />
                 </div>
               </div>
             </div>

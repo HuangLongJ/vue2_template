@@ -1,13 +1,16 @@
 
 <script>
+
 export default {
   name: "companyCard",
+  inject: ['root'],
   components: {},
   props: {},
   data () {
     return {};
   },
-  created () { },
+  created () {
+  },
   computed: {},
   methods: {},
   render () {
@@ -15,10 +18,10 @@ export default {
       <div class="company-card">
         <div class="company-card-box">
           <div class="company-card-box-title">Grow better with JINGdigital today</div>
-          <button class="btn-plain">Get started free</button>
+          <button class="btn-plain" data-btnType="freeBtn" onClick={this.root.startCtaHandler}>Get started free</button>
         </div>
         <div class="footer-card-bgImg">
-          <img src={'/images/components/caseStudies/pageFooter2.png'} />
+          <img src={'/images/components/caseStudies/pageFooter2.png'} alt="image" />
         </div>
       </div>
     )
@@ -73,10 +76,9 @@ export default {
         line-height: 48px;
       }
       .btn-plain {
-        min-width: 0;
-        height: 33px;
-        font-size: 14px;
-        padding: 0 20px;
+        min-width: 242px;
+        height: 56px;
+        font-size: 26px;
       }
     }
   }

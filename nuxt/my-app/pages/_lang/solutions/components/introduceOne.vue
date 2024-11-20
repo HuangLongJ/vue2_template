@@ -71,7 +71,7 @@ export default {
                       {this.titleRender(item)}
                       <div class="item-box-main">
                         <div class="item-box-img">
-                          <img src={item.src} />
+                          <img src={item.src} alt={item.title} />
                           <div class="item-box-img-style"></div>
                         </div>
                         {this.titleRender(item)}
@@ -184,7 +184,7 @@ export default {
       .list {
         .item {
           .item-box {
-            padding: 52px 50px 58px;
+            padding: 52px 25px 58px;
             .item-box-style-img {
               width: 80px;
               height: 80px;

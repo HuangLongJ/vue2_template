@@ -71,7 +71,7 @@ export default {
                   <div class="card-box-tip">
                     Accumulate successful experiences from 500 global B2B enterprises and provide you with technical support services.
                   </div>
-                  <btnBtns config={{ btnText1: 'Appointment to Build', btnsBoxStyle: { justifyContent: 'center' } }} />
+                  <btnBtns config={{ btnText1: 'Appointment to Build', dataBtnType1: 'buildBtn' }} />
                 </div>
               </div>
             </div>
@@ -139,6 +139,11 @@ export default {
         text-align: center;
         color: #333333;
       }
+      ::v-deep {
+        .box-btns {
+          justify-content: center;
+        }
+      }
     }
 
     .title {
@@ -204,6 +209,9 @@ export default {
             .box-btns {
               button + button {
                 margin-left: 32px;
+              }
+              button {
+                min-width: 242px;
               }
             }
           }

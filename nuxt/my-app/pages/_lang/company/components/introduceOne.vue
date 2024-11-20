@@ -39,11 +39,13 @@ export default {
       return [
         {
           src: '/images/components/company/introduceOneItem1.png',
+          alt: 'leadership',
           title: 'Kai<br/>Co-founder & CEO',
           tip: "Kai Hong, co-founder and CEO of JINGdigital, has more than 20 years of experience in strategy, marketing and entrepreneurship. Kai founded one of the leading Financial Technology Services Company in China. Kai has also worked for Siemens, Bain & Company, and served as Senior Vice President, Cisco China. Kai holds MBA from Wharton School of Business, MA from University of Pennsylvania and MSc from TH Aachen, Germany."
         },
         {
           src: '/images/components/company/introduceOneItem2.png',
+          alt: 'leadership',
           title: 'Kun<br/>Co-founder & President',
           tip: "Kun Hsu is co-founder and president of JINGdigital. Kun has invested in 8 companies in the field of technology and education technology, and served as a board member in 3 of them. Before JINGdigital, Kun has worked in the software industry at Microsoft, consulted multinationals on market entry strategies into China while at Bain & Co.. Moreover, in cooperation with Kai, Kun successfully founded and operated one of the leading Financial Technology Services Company in China. Kun has an MBA from INSEAD, MA in International Relations from John Hopkins University and BSc from the Wharton School of the University of Pennsylvania."
         }
@@ -53,6 +55,7 @@ export default {
       const data = [
         {
           src: '/images/components/company/introduceOneItem3.png',
+          alt: 'locations'
         },
         {
           title: 'SHANGHAI',
@@ -66,14 +69,14 @@ export default {
           title: 'SHENZHEN',
           tip: '5F, UpperHills South Distrct, Loft B, No.5001 Huanggang Rd.,<br/>Futian District, Shenzhen<br/>Guangdong, Shenzhen, China'
         },
-        // {
-        //   title: 'USA',
-        //   tip: '缺地址<br/>详细地址<br/>有了再加'
-        // },
-        // {
-        //   title: 'Germany',
-        //   tip: '缺地址<br/>详细地址<br/>有了再加'
-        // }
+        {
+          title: 'USA',
+          // tip: '缺地址<br/>详细地址<br/>有了再加'
+        },
+        {
+          title: 'Germany',
+          // tip: '缺地址<br/>详细地址<br/>有了再加'
+        }
       ]
       data.unshift(data[1])
       return data
@@ -153,7 +156,7 @@ export default {
                 return (
                   <div class="item-two-box-list-item" key={index}>
                     <div class="item-two-box-list-item-img">
-                      <img src={item.src} />
+                      <img src={item.src} alt={item.alt} />
                     </div>
                     <div class="item-two-box-list-item-content">
                       <div class="item-two-box-list-item-title" domPropsInnerHTML={item.title}></div>
@@ -176,7 +179,7 @@ export default {
                 return (
                   <div class="item-three-box-list-item" key={index}>
                     {item.src ? (<div class="item-three-box-list-item-img">
-                      <img src={item.src} />
+                      <img src={item.src} alt={item.alt} />
                     </div>)
                       :
                       (

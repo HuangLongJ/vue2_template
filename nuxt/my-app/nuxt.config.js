@@ -8,7 +8,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { name: 'description', content: 'Improve marketing efficiency and business performance with our AI-driven platform. Enhance customer experience, align marketing and sales, and achieve breakthroughs with enriched data.' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -22,7 +22,7 @@ export default {
       { rel: 'stylesheet', href: '/css/fonts.css' }
     ],
     script: [
-      { src: 'https://dev.jingsocial.com/open/js/jingCTA/1.0.0/sdkEntry.js', type: 'text/javascript' }
+      { src: 'https://app.jingsocial.com/open/js/jingCTA/1.0.0/sdkEntry.js', type: 'text/javascript' }
     ]
   },
 
@@ -61,7 +61,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
   ],
 
   axios: {
@@ -98,5 +98,8 @@ export default {
         }
       }
     }
-  }
+  },
+  router: {
+    middleware: 'router',
+  },
 }

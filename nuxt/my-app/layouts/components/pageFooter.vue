@@ -6,6 +6,9 @@ import { navList } from '@/common/config/navConfig.js';
 export default {
   name: 'pageFooter',
   computed: {
+    lang () {
+      return this.$route.params.lang || 'en'
+    },
     list () {
       return navList
     },
@@ -38,9 +41,9 @@ export default {
     },
     cardRender () {
       switch (this.viewName) {
-        case 'caseStudies':
+        case 'lang-caseStudies':
           return <caseStudiesCard />
-        case 'company':
+        case 'lang-company':
           return <companyCard />
         default:
           return <defaultCard />
@@ -66,14 +69,14 @@ export default {
                 {
                   this.list.map((item, index) => (
                     <div class="footer-bottom-link-item" key={index}>
-                      <NuxtLink to={{ path: item.path }}>
+                      <NuxtLink to={{ path: `/${this.lang}/${item.path}/` }}>
                         <div class="footer-bottom-link-item-title">
                           {item.title}
                         </div>
                       </NuxtLink>
                       {
                         item.children.map((items, indexs) =>
-                        (<NuxtLink to={{ path: item.path + '#' + items.target }}>
+                        (<NuxtLink to={{ path: `/${this.lang}/${item.path}/`, hash: '#' + items.target }}>
                           <div class="footer-bottom-link-item-link" key={indexs} >
                             {items.title}
                           </div>
@@ -97,7 +100,6 @@ export default {
                     )}
                   </div>
                   <div class="footer-bottom-base-tel"><span>Phone：400-104-0808</span> <span>Email：info@jingdigital.com</span></div>
-                  <div class="footer-bottom-base-address">Copyright © 2024 JINGdigital, Inc. 沪ICP备18018383号-1</div>
                 </div>
               </div>
             </div>
@@ -127,6 +129,7 @@ export default {
     }
   }
   .footer-box {
+    margin-top: -1px;
     padding-top: 100px;
     background: linear-gradient(0deg, #100d2c 0%, #3c27a6 44%, #3c27a6 99%);
     .footer-bottom {
@@ -162,7 +165,7 @@ export default {
         .footer-bottom-base-left {
           width: 240px;
           height: 70px;
-          align-self: flex-end;
+          align-self: flex-start;
         }
         .footer-bottom-base-right {
           font-size: 18px;
@@ -171,16 +174,27 @@ export default {
           color: #ffffff;
           .footer-bottom-base-logos {
             display: flex;
-            justify-content: space-between;
-            gap: 40px;
+            justify-content: flex-end;
+            gap: 26px;
             margin-bottom: 22px;
             .footer-bottom-base-logo {
               width: auto;
-              height: 40px;
+              height: 26px;
             }
           }
           .footer-bottom-base-tel {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 33px;
             margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+          }
+          .footer-bottom-base-address {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 33px;
+            text-align: right;
           }
         }
       }
@@ -217,6 +231,7 @@ export default {
               width: 196px;
               height: 57px;
               margin-bottom: 51px;
+              align-self: center;
             }
             .footer-bottom-base-right {
               display: flex;

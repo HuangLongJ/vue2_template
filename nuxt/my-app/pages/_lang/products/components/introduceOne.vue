@@ -48,6 +48,7 @@ export default {
         {
           src: '/images/components/products/introduceOneItem6.png',
           title: 'CDP <br/><span>(Customer Data Platform)</span>',
+          alt: 'CDP(Customer Data Platform)',
           target: 'cdp',
           tip: 'The exclusive customer data platform for B2B multinational enterprises, carrying the entire marketing cycle from customer acquisition to order completion, connects with mainstream CRM, and ensures data security and reliability.',
           layout: 2,
@@ -55,9 +56,9 @@ export default {
       ]
     },
     imgRender () {
-      return (img) => (
+      return (item) => (
         <div class="item-box-img">
-          <img src={img} />
+          <img src={item.src} alt={item.alt || item.title} />
         </div>
       )
     },
@@ -91,7 +92,7 @@ export default {
         <div class='list'>
           {
             this.list.map((item, index) => {
-              const data = [this.imgRender(item.src), this.textRender(item)]
+              const data = [this.imgRender(item), this.textRender(item)]
               if (item.layout === 2) {
                 data.reverse()
               }
@@ -144,7 +145,7 @@ export default {
         }
       }
       .item {
-        padding: 0 0 120px;
+        padding: 120px 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 75px;
@@ -186,6 +187,7 @@ export default {
       margin-top: 80px;
       .layout-style {
         .item {
+          padding: 0 0 120px;
           /* 元素反排序 */
           display: flex;
           flex-direction: column-reverse;

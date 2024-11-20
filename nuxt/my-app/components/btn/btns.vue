@@ -2,6 +2,7 @@
 export default {
   name: "btns",
   components: {},
+  inject: ['root'],
   props: {
     config: {
       type: Object,
@@ -15,13 +16,12 @@ export default {
   computed: {
     defaultConfig () {
       return Object.assign({}, {
-        showBtn1: true,
         btnText1: "Get a demo",
+        dataBtnType1: 'pageDemoBtn', // 按钮类型 - cta类型
         btnType1: 'primary',
-        showBtn2: true,
         btnText2: "Get started free",
         btnType2: 'plain',
-        btnsBoxStyle: {},
+        dataBtnType2: 'freeBtn', // 按钮类型 - cta类型
       }, this.config)
     }
   },
@@ -32,9 +32,23 @@ export default {
   },
   render () {
     return (
-      <div class="box-btns" style={this.defaultConfig.btnsBoxStyle}>
-        {this.defaultConfig.showBtn1 && <button class={`btn-${this.defaultConfig.btnType1}`} onClick={() => { this.handler(this.btnType1) }}>{this.defaultConfig.btnText1}</button>}
-        {this.defaultConfig.showBtn2 && <button class={`btn-${this.defaultConfig.btnType2}`} onClick={() => { this.handler(this.btnType12) }}>{this.defaultConfig.btnText2}</button>}
+      <div class="box-btns">
+        {
+          <button
+            class={`btn-${this.defaultConfig.btnType1}`}
+            data-btnType={this.defaultConfig.dataBtnType1}
+            onClick={this.root.startCtaHandler}>
+            {this.defaultConfig.btnText1}
+          </button>
+        }
+        {
+          <button
+            class={`btn-${this.defaultConfig.btnType2}`}
+            data-btnType={this.defaultConfig.dataBtnType2}
+            onClick={this.root.startCtaHandler}>
+            {this.defaultConfig.btnText2}
+          </button>
+        }
       </div>
     )
   }

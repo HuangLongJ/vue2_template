@@ -2,7 +2,7 @@ export const navList = [
   {
     name: 'Products',
     title: 'PRODUCTS',
-    path: '/products',
+    path: 'products',
     children: [
       {
         title: 'Marketing Automation',
@@ -32,7 +32,7 @@ export const navList = [
   }, {
     name: 'Solutions',
     title: 'SOLUTIONS',
-    path: '/solutions',
+    path: 'solutions',
     children: [
       {
         title: 'Content Management',
@@ -61,7 +61,7 @@ export const navList = [
   }, {
     name: 'Case Studies',
     title: 'CASE STUDIES',
-    path: '/caseStudies',
+    path: 'case-studies',
     children: [
       {
         title: 'High-Tech',
@@ -83,7 +83,7 @@ export const navList = [
   }, {
     name: 'Company',
     title: 'COMPANY',
-    path: '/company',
+    path: 'company',
     children: [
       {
         title: 'About Us',

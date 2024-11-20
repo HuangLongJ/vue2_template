@@ -1,12 +1,50 @@
 import { loadCTA } from '@/common/utils/loadCTA.js';
+
 export default {
   data () {
     return {
-      ctaInstance: null, // cta实例
-      ctaReady: false
+      btnCtas: {
+        // Get started free 页面
+        freeBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: '2TcVisTBKdJEXbeHscP6FC1'
+        },
+        // TALK TO AN EXPERT 页面
+        talkBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: '9dgdb2fmeiQkgGWe6G2CiV1',
+        },
+        // Get a demo 顶部
+        navDemoBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: 'hJSAeWmgttYBb6pZcBW2j71',
+        },
+        // Get a demo 底部
+        bottomDemoBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: 'dXDGS4CzrPPUC4UknwEzrg1',
+        },
+        // Get a demo 页面
+        pageDemoBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: 'iJ654d8FnwKiEovknAwnKa1',
+        },
+        // Appointment to Build 页面
+        buildBtn: {
+          ctaInstance: null,
+          ctaReady: false,
+          pushId: '49fEMDhzpvUyDRwzyokiJ1',
+        },
+      },
     }
   },
   mounted () {
+    // 初始化所有cta表单
     this.initCta()
   },
   methods: {
@@ -14,33 +52,39 @@ export default {
      * 初始化cta
      * @param {boolean} autoTrigger 加载完成是否自动触发cta
      */
-    async initCta (autoTrigger = false) {
+    async initCta () {
       if (!window.JingCTASDK) {
         await loadCTA()
       }
-      if (this.ctaInstance) return
-      const ctaSdkConfig = {
-        ctaId: "00f12ed419bc4effb54136c60eb45dfe",
-        customPrivacyProps: {
-          zIndex: 20000
-        },
-        formConfig: {
-          dialog: true,
-        },
-      }
-      this.ctaInstance = new window.JingCTASDK(ctaSdkConfig)
-      // cta初始化
-      this.ctaInstance.onReady(({ ctaSid, ctaDetail }) => {
-        this.ctaSid = ctaSid
-        this.ctaReady = true
-        if (autoTrigger) {
-          this.ctaInstance.start()
+      Object.keys(this.btnCtas).forEach(key => {
+        const item = this.btnCtas[key]
+        if (item.ctaInstance) return
+        const ctaSdkConfig = {
+          ctaId: "7a0615067ef6474dbb81a8facc12fb1c",
+          pushId: item.pushId,
+          formConfig: {
+            dialog: true,
+          },
         }
+        item.ctaInstance = new window.JingCTASDK(ctaSdkConfig)
+        item.ctaInstance.onReady(({ ctaSid, ctaDetail }) => { // cta初始化完成
+          item.ctaReady = true
+          // this.ctaInstance.start()
+          // this.ctaInstance.onComplete() // cta完成
+        })
       })
-      // cta完成
-      this.ctaInstance.onComplete = () => {
-
-      }
     },
+    // 启动按钮的cta
+    startCtaHandler (e) {
+      const btnType = e.target.dataset.btntype
+      if (!btnType && !this.btnCtas[btnType] && this.btnCtas[btnType].ctaReady) return
+      this.btnCtas[btnType].ctaInstance && this.btnCtas[btnType].ctaInstance.start() // 对应的按钮执行cta
+    },
+  },
+  beforeDestroy () {
+    Object.keys(this.btnCtas).forEach(key => {
+      const item = this.btnCtas[key]
+      item.ctaInstance && item.ctaInstance.destroy()
+    })
   },
 }

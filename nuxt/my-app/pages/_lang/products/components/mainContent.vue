@@ -10,7 +10,7 @@ export default {
     return (
       <div class="main-box container-box">
         <div class="main-box-bg">
-          <img src={'/images/components/products/mainContent.png'} />
+          <img src={'/images/components/products/mainContent.png'} alt="image" />
         </div>
         <div class="main-content container-content">
           <div class="main-title">JINGdigitl Products</div>

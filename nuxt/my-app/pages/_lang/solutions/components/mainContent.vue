@@ -23,14 +23,14 @@ export default {
         <div class="main-content container-content">
           <div class="main-top">
             <div class="main-left">
-              <div class="main-title">Success Stories</div>
+              <div class="main-title">JINGdigital Solutions</div>
               <div class="main-tip">
-                Empowering over 500 global B2B companies to accelerate digital marketing transformation and achieve sustainable growth.
+                For different marketing scenarios, JINGdigital can consolidate your full set of marketing strategies to provide you with an automated marketing technology solution, which will help you to achieve brands’ different kinds of KPI. We empower brand to create a higher marketing conversion rate while reducing costs.
               </div>
-              <btnBtns config={{ btnText1: "Get started free" }} />
+              <btnBtns />
             </div>
             <div class="main-right">
-              <img src={'/images/components/caseStudies/mainContent.png'} />
+              <img src={'/images/components/solutions/mainContent.png'} alt="image" />
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .main-box {
-  padding: 78px 0 140px;
+  padding: 140px 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f1f3ff 99%);
   /* min-height: calc(100vh - #{$navHeight}); */
   .main-content {
@@ -53,7 +53,7 @@ export default {
     .main-top {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 115px;
+      grid-gap: 105px;
       .main-left {
         display: flex;
         flex-direction: column;
@@ -63,14 +63,14 @@ export default {
           font-weight: bold;
           line-height: 64px;
           color: #5523b0;
-          margin-bottom: 60px;
+          margin-bottom: 70px;
         }
         .main-tip {
           font-size: 22px;
           font-weight: 500;
           line-height: 32px;
           color: #1e1e1e;
-          margin-bottom: 90px;
+          margin-bottom: 72px;
         }
       }
       .main-right {
@@ -83,13 +83,13 @@ export default {
 
 @include phone {
   .main-box {
-    padding: 90px 0 76px;
+    padding: 90px 0 54px;
     min-height: 0;
     .main-content {
       .main-top {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
+        grid-gap: 45px;
         .main-left {
           .main-title {
             margin-bottom: 42px;

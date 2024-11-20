@@ -10,11 +10,15 @@
 <script>
 import mainContent from './components/mainContent.vue';
 import introduceOne from './components/introduceOne.vue';
+import head from '@/common/head/index.js'
 
 export default {
   name: 'solutions',
   layout: 'App',
   inject: ['root'],
+  head () {
+    return head(this.$options.name)
+  },
   data () {
     return {
 

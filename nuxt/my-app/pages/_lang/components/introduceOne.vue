@@ -56,7 +56,7 @@ export default {
               this.list.map((item, index) => (
                 <div class="list-item" key={index}>
                   <div class="list-item-img">
-                    <img src={item.src} />
+                    <img src={item.src} alt={item.title}/>
                   </div>
                   <div class="list-item-title medium-title">
                     {item.title}
@@ -107,11 +107,14 @@ export default {
           min-height: 3em;
           padding: 0 16px;
           margin-top: 48px;
+          font-size: 26px;
         }
         .list-item-tip {
           padding: 0 16px;
           margin-top: 30px;
           margin-bottom: 48px;
+          font-size: 20px;
+          line-height: 30px;
         }
       }
     }
@@ -131,11 +134,13 @@ export default {
           .list-item-title {
             min-height: 0;
             padding: 0 39px;
+            font-size: 28px;
           }
           .list-item-tip {
             padding: 0 39px;
             margin-top: 24px;
             margin-bottom: 43px;
+            font-size: 22px;
           }
         }
       }
