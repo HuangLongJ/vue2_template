@@ -534,19 +534,8 @@ foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
 	 * @param string $plugin Full path to the plugin's main file.
 	 */
 	do_action( 'plugin_loaded', $plugin );
-
-	$plugin_data = get_plugin_data( $plugin, false, false );
-
-	$textdomain = $plugin_data['TextDomain'];
-	if ( $textdomain ) {
-		if ( $plugin_data['DomainPath'] ) {
-			$GLOBALS['wp_textdomain_registry']->set_custom_path( $textdomain, dirname( $plugin ) . $plugin_data['DomainPath'] );
-		} else {
-			$GLOBALS['wp_textdomain_registry']->set_custom_path( $textdomain, dirname( $plugin ) );
-		}
-	}
 }
-unset( $plugin, $_wp_plugin_file, $plugin_data, $textdomain );
+unset( $plugin, $_wp_plugin_file );
 
 // Load pluggable functions.
 require ABSPATH . WPINC . '/pluggable.php';
@@ -679,15 +668,11 @@ $GLOBALS['wp_locale_switcher']->init();
 
 // Load the functions for the active theme, for both parent and child theme if applicable.
 foreach ( wp_get_active_and_valid_themes() as $theme ) {
-	$wp_theme = wp_get_theme( basename( $theme ) );
-
 	if ( file_exists( $theme . '/functions.php' ) ) {
 		include $theme . '/functions.php';
 	}
-
-	$wp_theme->load_textdomain();
 }
-unset( $theme, $wp_theme );
+unset( $theme );
 
 /**
  * Fires after the theme is loaded.
