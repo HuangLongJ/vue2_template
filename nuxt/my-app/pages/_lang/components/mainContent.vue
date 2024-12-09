@@ -62,7 +62,7 @@ export default {
                 Improving marketing efficiency and business performance - social media based, real time personalization,
                 sales-marketing alignment, and AI-driven
               </div>
-              <button class="btn-custom-main" data-btnType="freeBtn" onClick={this.root.startCtaHandler}>Get started free</button>
+              <button class="btn-custom-main" data-btnType="freeBtnCTA" onClick={this.root.startCtaHandler}>Get started free</button>
             </div>
             {this.imgRender('main-right')}
           </div>

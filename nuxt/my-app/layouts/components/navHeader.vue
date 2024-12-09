@@ -78,7 +78,7 @@ export default {
               </div>
             </div>
             <div class="nav-right">
-              <button class="btn-custom-nav" data-btnType="navDemoBtn" onClick={this.root.startCtaHandler} >Get a demo</button>
+              <button class="btn-custom-nav" data-btnType="navDemoBtnCTA" onClick={this.root.startCtaHandler} >Get a demo</button>
               {this.langRender}
               <div class="nav-menu-icon" onClick={this.showMenuHander}>
                 <img src={'/images/icon/menu-add-fill.png'} />

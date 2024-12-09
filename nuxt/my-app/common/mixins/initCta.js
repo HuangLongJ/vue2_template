@@ -5,37 +5,37 @@ export default {
     return {
       btnCtas: {
         // Get started free 页面
-        freeBtn: {
+        freeBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: '2TcVisTBKdJEXbeHscP6FC1'
         },
         // TALK TO AN EXPERT 页面
-        talkBtn: {
+        talkBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: '9dgdb2fmeiQkgGWe6G2CiV1',
         },
         // Get a demo 顶部
-        navDemoBtn: {
+        navDemoBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: 'hJSAeWmgttYBb6pZcBW2j71',
         },
         // Get a demo 底部
-        bottomDemoBtn: {
+        bottomDemoBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: 'dXDGS4CzrPPUC4UknwEzrg1',
         },
         // Get a demo 页面
-        pageDemoBtn: {
+        pageDemoBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: 'iJ654d8FnwKiEovknAwnKa1',
         },
         // Appointment to Build 页面
-        buildBtn: {
+        buildBtnCTA: {
           ctaInstance: null,
           ctaReady: false,
           pushId: '49fEMDhzpvUyDRwzyokiJ1',

@@ -18,7 +18,7 @@ export default {
       <div class="company-card">
         <div class="company-card-box">
           <div class="company-card-box-title">Grow better with JINGdigital today</div>
-          <button class="btn-plain" data-btnType="freeBtn" onClick={this.root.startCtaHandler}>Get started free</button>
+          <button class="btn-plain" data-btnType="freeBtnCTA" onClick={this.root.startCtaHandler}>Get started free</button>
         </div>
         <div class="footer-card-bgImg">
           <img src={'/images/components/caseStudies/pageFooter2.png'} alt="image" />

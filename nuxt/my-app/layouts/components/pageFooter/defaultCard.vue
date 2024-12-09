@@ -17,7 +17,7 @@ export default {
         <div class="footer-card-box">
           <div class="footer-card-title">Next generation marketing technology to enhance customer experience and improve marketing effectiveness</div>
           <div class="footer-card-tip">Helping over 500 leading B2B companies achieved sustained business growth</div>
-          <button class="btn-primary" data-btnType="bottomDemoBtn" onClick={this.root.startCtaHandler}>Get a demo</button>
+          <button class="btn-primary" data-btnType="bottomDemoBtnCTA" onClick={this.root.startCtaHandler}>Get a demo</button>
         </div>
         <div class="footer-card-bgImg">
           <img src={'/images/components/homePage/pageFooter1.png'} />

@@ -17,11 +17,11 @@ export default {
     defaultConfig () {
       return Object.assign({}, {
         btnText1: "Get a demo",
-        dataBtnType1: 'pageDemoBtn', // 按钮类型 - cta类型
+        dataBtnType1: 'pageDemoBtnCTA', // 按钮类型 - cta类型
         btnType1: 'primary',
         btnText2: "Get started free",
         btnType2: 'plain',
-        dataBtnType2: 'freeBtn', // 按钮类型 - cta类型
+        dataBtnType2: 'freeBtnCTA', // 按钮类型 - cta类型
       }, this.config)
     }
   },

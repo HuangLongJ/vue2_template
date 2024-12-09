@@ -71,7 +71,7 @@ export default {
                   <div class="card-box-tip">
                     Accumulate successful experiences from 500 global B2B enterprises and provide you with technical support services.
                   </div>
-                  <btnBtns config={{ btnText1: 'Appointment to Build', dataBtnType1: 'buildBtn' }} />
+                  <btnBtns config={{ btnText1: 'Appointment to Build', dataBtnType1: 'buildBtnCTA' }} />
                 </div>
               </div>
             </div>

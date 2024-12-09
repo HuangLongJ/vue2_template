@@ -95,7 +95,7 @@ export default {
               })
             }
           </div>
-          <button class="btn-primary" data-btnType="freeBtn" onClick={this.root.startCtaHandler}>Get started free</button>
+          <button class="btn-primary" data-btnType="freeBtnCTA" onClick={this.root.startCtaHandler}>Get started free</button>
         </div>
       </div>
     )

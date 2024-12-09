@@ -16,7 +16,7 @@ export default {
       <div class="case-studies-card">
         <div class="case-studies-card-box">
           <div class="case-studies-card-box-title">Let's talk about what JINGdigital can do for your business.</div>
-          <button class="btn-plain" data-btnType="talkBtn" onClick={this.root.startCtaHandler}>TALK TO AN EXPERT</button>
+          <button class="btn-plain" data-btnType="talkBtnCTA" onClick={this.root.startCtaHandler}>TALK TO AN EXPERT</button>
         </div>
         <div class="footer-card-bgImg">
           <img src={'/images/components/caseStudies/pageFooter2.png'} />

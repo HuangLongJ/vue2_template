@@ -4,28 +4,144 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .box {
-        width: 100px;
-        height: 100px;
-        background-color: pink;
-        margin-top: 16px;
-        transition: all 0.5s;
+    <style></style>
+    <script>
+      class CTAService {
+        constructor() {
+          this.statusKey = 'loadStatus'
+          this.sdkLoadPms = null
+          this.sdkDependencies = [{ url: '/open/js/jingCTA/1.0.0/sdkEntry.js', required: true, id: 'jingCTAEntry' }]
+          this.btnCtas = {
+            freeBtnCTA: { ctaInstance: null, ctaReady: false, pushId: '2TcVisTBKdJEXbeHscP6FC1' }, // Get started free 页面
+            talkBtnCTA: { ctaInstance: null, ctaReady: false, pushId: '9dgdb2fmeiQkgGWe6G2CiV1' }, // TALK TO AN EXPERT 页面
+            navDemoBtnCTA: { ctaInstance: null, ctaReady: false, pushId: 'hJSAeWmgttYBb6pZcBW2j71' }, // Get a demo 顶部
+            bottomDemoBtnCTA: { ctaInstance: null, ctaReady: false, pushId: 'dXDGS4CzrPPUC4UknwEzrg1' }, // Get a demo 底部
+            pageDemoBtnCTA: { ctaInstance: null, ctaReady: false, pushId: 'iJ654d8FnwKiEovknAwnKa1' }, // Get a demo 页面
+            buildBtnCTA: { ctaInstance: null, ctaReady: false, pushId: '49fEMDhzpvUyDRwzyokiJ1' } // Appointment to Build 页面
+          }
+          document.addEventListener('DOMContentLoaded', this.mounted.bind(this))
+        }
+
+        loadScript(url, id) {
+          return new Promise((resolve, reject) => {
+            let script = id ? document.getElementById(id) : null
+            if (script) {
+              const status = script.getAttribute(this.statusKey)
+              switch (status) {
+                case 'failed':
+                  script.parentNode.removeChild(script)
+                  script = document.createElement('script')
+                  break
+                case 'loaded':
+                  resolve(script.loadEvent)
+                  return
+                default:
+              }
+            } else {
+              script = document.createElement('script')
+            }
+            script.setAttribute(this.statusKey, 'pending')
+            script.src = url
+            script.addEventListener('load', (ev) => {
+              script.loadEvent = ev
+              script.setAttribute(this.statusKey, 'loaded')
+              resolve(ev)
+            })
+            script.addEventListener('error', (err) => {
+              script.setAttribute(this.statusKey, 'failed')
+              reject(err)
+            })
+            script.id = id
+            document.head.appendChild(script)
+          })
+        }
+
+        async loadCTA() {
+          if (this.sdkLoadPms) return this.sdkLoadPms
+          const arr = this.sdkDependencies.map((item) => ({
+            ...item,
+            url: 'https://app.jingsocial.com' + item.url
+          }))
+
+          const pmsArr = arr.map((config) => {
+            const pms = this.loadScript(config.url, config.id)
+            return config.required ? pms : pms.catch(() => Promise.resolve())
+          })
+          this.sdkLoadPms = Promise.all(pmsArr).then(() => window.JingCTASDK)
+          return this.sdkLoadPms
+        }
+
+        async initCta() {
+          if (!window.JingCTASDK) {
+            await this.loadCTA()
+          }
+          Object.keys(this.btnCtas).forEach((key) => {
+            const item = this.btnCtas[key]
+            if (item.ctaInstance) return
+            const ctaSdkConfig = {
+              ctaId: '7a0615067ef6474dbb81a8facc12fb1c',
+              pushId: item.pushId,
+              formConfig: {
+                dialog: true
+              }
+            }
+            item.ctaInstance = new window.JingCTASDK(ctaSdkConfig)
+            item.ctaInstance.onReady(({ ctaSid, ctaDetail }) => {
+              item.ctaReady = true
+            })
+          })
+          // 按钮绑定事件
+        }
+
+        mounted() {
+          this.initCta()
+          this.btnAddClickHandler()
+        }
+
+        btnAddClickHandler() {
+          Object.keys(this.btnCtas).forEach((key) => {
+            Array.from(document.querySelectorAll(`#${key}`)).forEach((btn) => {
+              const _this = this
+              btn.addEventListener('click', (event) => {
+                event.preventDefault()
+                console.log(_this.btnCtas[key])
+                _this.btnCtas[key].ctaReady && _this.btnCtas[key].ctaInstance && _this.btnCtas[key].ctaInstance.start()
+              })
+            })
+          })
+        }
       }
-      /* @keyframes rotate {
-        from {
-          transform: rotate(var(--rotation-start, 0deg));
-        }
-        to {
-          transform: rotate(var(--rotation-end, 0deg));
-        }
-      } */
-    </style>
+      new CTAService()
+    </script>
+    <!-- header添加meta标签 -->
+    <script>
+      // meta标签 keywords类型 seo插件无配置，手动添加
+      document.addEventListener('DOMContentLoaded', () => {
+        const tags = [
+          {
+            tagName: 'meta',
+            attr: {
+              name: 'keywords',
+              content: 'B2B Marketing Technology, AI-Driven Marketing, Social Media Integration, Real-time Personalization, Marketing & Sales Alignment, Embedded AI, Customer Experience Enhancement, Data-Driven Sales Performance, Global Enterprise Growth, End-To-End Marketing Solutions'
+            }
+          }
+        ]
+        tags.forEach((tag) => {
+          const ele = document.createElement(tag.tagName)
+          Object.keys(tag.attr).forEach((key) => {
+            ele.setAttribute(key, tag.attr[key])
+          })
+          document.head.appendChild(ele)
+        })
+      })
+    </script>
   </head>
   <body>
-    <button class="btn">+</button>
-    <div class="box"></div>
-    <textarea class="textarea" name="" cols="30" rows="10"></textarea>
-    <script src="./1.js"></script>
+    <button id="freeBtnCTA">freeBtnCTA</button>
+    <button id="talkBtnCTA">talkBtnCTA</button>
+    <button id="navDemoBtnCTA">navDemoBtnCTA</button>
+    <button id="bottomDemoBtnCTA">bottomDemoBtnCTA</button>
+    <button id="pageDemoBtnCTA">pageDemoBtnCTA</button>
+    <button id="buildBtnCTA">buildBtnCTA</button>
   </body>
 </html>

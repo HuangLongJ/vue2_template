@@ -27,7 +27,7 @@ export default {
               <div class="main-tip">
                 Empowering over 500 global B2B companies to accelerate digital marketing transformation and achieve sustainable growth.
               </div>
-              <btnBtns config={{ btnText1: "Get started free", dataBtnType1: 'freeBtn' }} />
+              <btnBtns config={{ btnText1: "Get started free", dataBtnType1: 'freeBtnCTA' }} />
             </div>
             <div class="main-right">
               <img src={'/images/components/caseStudies/mainContent.png'} />

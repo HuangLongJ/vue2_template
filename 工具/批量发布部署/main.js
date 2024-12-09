@@ -94,7 +94,7 @@ function req (url, method = 'get', data) {
     method: method,
     data: data,
     headers: {
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhc2NvcGUiOiIiLCJleHAiOjE3MjY4OTY1MjAsImlkZW50aXR5Ijo0MywibmljZSI6Ikh1YW5nTG9uZ0p1biIsIm9yaWdfaWF0IjoxNzI2ODEwMTIwLCJyb2xlaWQiOjIsInJvbGVrZXkiOiJkZXYiLCJyb2xlbmFtZSI6IuW8gOWPkSJ9.20ZpL5iKZI4O1rgYhwC_7Qp8OcRiUY8IVG6iLM_yyzo'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhc2NvcGUiOiIiLCJleHAiOjE3MzM0Njk1NjIsImlkZW50aXR5Ijo0MywibmljZSI6Ikh1YW5nTG9uZ0p1biIsIm9yaWdfaWF0IjoxNzMzMzgzMTYyLCJyb2xlaWQiOjIsInJvbGVrZXkiOiJkZXYiLCJyb2xlbmFtZSI6IuW8gOWPkSJ9.-O_TpylZcgaVSoJicaPUdQUZjsEKCqMw8Ze59UW6D8I'
     },
     timeout: 20 * 1000
   }).then(data => {
@@ -245,6 +245,21 @@ let projectList = [
   // 'jms-vip-frontend-static',
   // 'jms-forms-frontend-static'
   // 'jms-edm-microproject-frontend-static'
+
+  // 'webinar-microProject-app', // 【组合CTA交互性优化】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001057136
+  // 'seminar-microProject-app',
+  // 'link-microProject-app',
+  // 'landingPage-microProject-app',
+  // 'content-microProject-app',
+  // 'survey-microProject-app',
+
+  // 'teamMemberCenter-microProject-app',// 【组合CTA交互性优化】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001057136 【电子名片名片分析页面增加关注公众号指标】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001056974
+
+  // 'fullStaffMarketing-microProject-app',// 【全员营销分享海报样式优化】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001057140
+  // 'jms-allMemberMarketing-frontend-static', 
+
+  'userProfile-microProject-app', // 【用户群组列表以及创建交互优化】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001057032
+  'dataManagement-microProject-app',
 ];
 
 /* 
@@ -252,12 +267,12 @@ let projectList = [
 */
 
 let envs = [
-  DEV,
+  // DEV,
   // STAGING
-  // LIVE
+  LIVE
 ]
 
-batchBuild(projectList, envs)
+// batchBuild(projectList, envs)
 
-// batchDeploy(projectList, envs, '【平台5.0发布验收】https://www.tapd.cn/57788555/prong/stories/view/1157788555001054054')
+batchDeploy(projectList, envs, '【用户群组列表以及创建交互优化】 https://www.tapd.cn/57788555/prong/stories/view/1157788555001057032')
 

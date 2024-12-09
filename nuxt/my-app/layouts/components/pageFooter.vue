@@ -40,8 +40,9 @@ export default {
       return this.$route.name
     },
     cardRender () {
+        console.log(this.viewName)
       switch (this.viewName) {
-        case 'lang-caseStudies':
+        case 'lang-case-studies':
           return <caseStudiesCard />
         case 'lang-company':
           return <companyCard />
