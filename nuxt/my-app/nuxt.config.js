@@ -102,4 +102,9 @@ export default {
   router: {
     middleware: 'router',
   },
+  target: 'static',
+  generate: {
+    subFolder: false,
+    routes: ['/en/']
+  }
 }

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        div {
+          box-sizing: border-box;
+        }
+      }
+      .container {
+        max-width: 1200px;
+        width: 100%;
+      }
+      .full-container {
+        width: 100%;
+      }
+      /* 主模块 */
+      .main-box {
+        width: 100%;
+        padding: 80px 0 140px;
+        position: relative;
+        .main-box-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 480px;
+        }
+        .main-title {
+          font-family: PingFang SC;
+          font-size: 60px;
+          font-weight: 600;
+          line-height: 90px;
+          text-align: center;
+          color: #333333;
+          position: relative;
+          z-index: 1;
+        }
+        .main-box-two {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 125px;
+          position: relative;
+          z-index: 1;
+          align-items: flex-end;
+          .main-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
+            padding: 32px 36px;
+            color: #333333;
+            font-family: PingFang SC;
+            font-size: 16px;
+            line-height: 32px;
+            height: min-content;
+          }
+          .main-right-img {
+            width: 448px;
+            height: 464px;
+          }
+        }
+      }
+      /* 背景板模块 */
+      .backboard-content {
+        position: relative;
+        padding: 105px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        gap: 50px;
+        .backboard-content-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .backboard-content-img {
+          position: relative;
+          height: 52px;
+          z-index: 1;
+        }
+        .backboard-content-title {
+          position: relative;
+          font-family: PingFang SC;
+          font-size: 46px;
+          font-weight: 500;
+          line-height: 60px;
+          color: #ffffff;
+          z-index: 1;
+        }
+      }
+      .two-main-content {
+        width: 100%;
+        padding: 80px 0 100px;
+        position: relative;
+        .two-main-content-title {
+          font-family: PingFang SC;
+          font-size: 40px;
+          line-height: 60px;
+          text-align: center;
+          color: #6942c0;
+          margin-bottom: 80px;
+        }
+        .two-main-content-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: 80px 88px;
+          .two-main-content-item {
+            background: #ffffff;
+            border: 1px solid rgba(18, 20, 29, 0.1);
+            border-bottom: 10px solid #12141d;
+            padding: 46px 36px;
+            .two-main-content-img {
+              width: 50px;
+              height: 50px;
+              margin-bottom: 15px;
+            }
+            .two-main-content-item-title {
+              margin-bottom: 16px;
+              font-family: PingFang SC;
+              font-size: 24px;
+              font-weight: 500;
+              line-height: 36px;
+              color: #333333;
+            }
+            .two-main-content-item-text {
+              font-family: PingFang SC;
+              font-size: 16px;
+              line-height: 32px;
+              color: #333333;
+            }
+          }
+        }
+        .three-main-content-list {
+          display: grid;
+          grid-template-columns: 1fr 448px;
+          gap: 90px;
+          &.is-reverse {
+            grid-template-columns: 448px 1fr;
+            .three-main-content-text {
+              order: 3;
+            }
+          }
+          .three-main-content-text {
+            font-family: PingFang SC;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 48px;
+            color: #333333;
+            order: 1;
+          }
+          .three-main-content-img {
+            height: 380px;
+            order: 2;
+          }
+        }
+      }
+      /* 移动端 */
+      @media screen and (max-width: 1199px) {
+        .container {
+          max-width: 100%;
+          padding: 0 25px;
+        }
+        .main-box {
+          padding: 40px 0;
+          .main-title {
+            font-size: 30px;
+            line-height: 45px;
+            margin-bottom: 30px;
+          }
+          .main-box-two {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: initial;
+            .main-card {
+              padding: 16px 18px;
+              font-size: 12px;
+              line-height: 24px;
+            }
+            .main-right-img {
+              margin-top: -16px;
+              width: calc(448px / 2);
+              height: calc(464px / 2);
+            }
+          }
+        }
+        .backboard-content {
+          padding: 30px 50px;
+          .backboard-content-img {
+            display: none;
+          }
+          .backboard-content-title {
+            font-size: 26px;
+            line-height: 30px;
+          }
+        }
+        .two-main-content {
+          padding: 30px 25px;
+          .two-main-content-title {
+            font-size: 26px;
+            line-height: 30px;
+            margin-bottom: 30px;
+          }
+          .two-main-content-list {
+            grid-template-columns: 1fr;
+            gap: 40px 44px;
+            .two-main-content-item {
+              padding: 25px;
+              .two-main-content-img {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 8px;
+              }
+              .two-main-content-item-title {
+                margin-bottom: 10px;
+                font-size: 16px;
+                line-height: 24px;
+              }
+              .two-main-content-item-text {
+                font-size: 12px;
+                line-height: 24px;
+              }
+            }
+          }
+          .three-main-content-list {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 30px;
+            &.is-reverse {
+              grid-template-columns: 1fr;
+              .three-main-content-text {
+                order: 1;
+              }
+            }
+            .three-main-content-text {
+              font-size: 12px;
+              line-height: 24px;
+            }
+            .three-main-content-img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+    </style>
+    <div class="main-container">
+      <div class="container">
+        <!-- 主模块 -->
+        <div class="main-box">
+          <img class="main-box-bg" src="https://www.jingdigital.com/wp-content/uploads/2024/12/32a4be99460d6e7f8803-2.png" alt="" />
+          <div class="main-title">为什么选择 JINGglobal 作为 出海营销合作伙伴？</div>
+          <div class="main-box-two">
+            <div class="main-card">
+              中国企业在国内多样竞争环境下持续创新商业模式，在全球数字化与智能化变革中具备领先的实践经验。在移动端社交场景等数字化获客营销场景上，中企出海在战略上可以 Copy from China（中国优势能力输出）。
+              <br />
+              <br />
+              径硕科技自 2016 年以来专注服务 B2B 企业，以全渠道、多场景自动化获客产品与解决方案，服务超过 600 多家跨国企业、本土上市公司与各类民营企业。径硕科技创始人及创始团队以其跨文化背景和管理经验，对出海营销有着前瞻性洞察与战略判断。JINGglobal 作为径硕科技海外团队，创新研发适合中国企业出海的数字营销平台，优选全球营销生态资源，为中国企业出海提供一站式数字化营销产品与服务，全力助力中国企业全球化。
+            </div>
+            <img class="main-right-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/40e23715bab40ed7b6bb-2.png" alt="" />
+          </div>
+        </div>
+        <!-- 背景板模块 -->
+      </div>
+      <div class="full-container">
+        <div class="backboard-content">
+          <img class="backboard-content-bg" src="https://www.jingdigital.com/wp-content/uploads/2024/12/7a64c0839061a89bd943.png" alt="" />
+          <img class="backboard-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/b33a74778c72711edc24-3.png" alt="" />
+          <div class="backboard-content-title">JINGglobal 能够帮助我们出海营销实现什么？</div>
+        </div>
+      </div>
+      <!-- 第二主模块 -->
+      <div class="container">
+        <div class="two-main-content">
+          <div class="two-main-content-title">出海核心营销场景获客</div>
+          <div class="two-main-content-list">
+            <div class="two-main-content-item">
+              <img class="two-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/d9544b763dbf54dd8e00-3.png" alt="" />
+              <div class="two-main-content-item-title">企业官方网站生态建设</div>
+              <div class="two-main-content-item-text">官方网站作为企业品牌形象的重要展示窗口和海外营销的关键渠道，其建设显得尤为重要。出海网站与本土网站在语言和文化、设计风格、获客方式、政策和隐私安全、营销工具集成能力以及转化方式等方面存在显著差异。JINGglobal 提供海外网站搭建到营销工具一站式集成能力，包括留资工具、客服工具（AI 多语种智能客服）等全方位网站生态策略、营销工具集成与相关服务。</div>
+            </div>
+            <div class="two-main-content-item">
+              <img class="two-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/1c9e92bf22f12b82348d-3.png" alt="" />
+              <div class="two-main-content-item-title">行业展会与线下会议获客</div>
+              <div class="two-main-content-item-text">展会互动管理工具，是 JINGglobal 为 B2B 企业出海会展、搭建展台的互动场景等量身定制的运营模块。它支持品牌方在展台以物料中的二维码为互动入口，让参观展位的观众体验互动旅程，完成留资、获取资料、分享并领取奖励等一系列体验。参展不再只是收集名片，而是一场从线下引流线上的自动化旅程的开始。</div>
+            </div>
+            <div class="two-main-content-item">
+              <img class="two-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/3d88b2e6425bc4d04cca-3.png" alt="" />
+              <div class="two-main-content-item-title">主流广告投放平台获客集成</div>
+              <div class="two-main-content-item-text">打通 Google、Facebook、LinkedIn 等跨平台广告投放，降低投放运营门槛，优化投放流程，节省核心环节的时间成本，为企业带来从建站到广告获客再到运营的全链路服务体验，提升跨境营销效率和效果。</div>
+            </div>
+            <div class="two-main-content-item">
+              <img class="two-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/5b64d6bd088757d61f17-3.png" alt="" />
+              <div class="two-main-content-item-title">海外邮件 EDM 一键触达</div>
+              <div class="two-main-content-item-text">出海邮件营销(EDM)模块，提供易于使用的编辑器和一系列营销自动化功能，能够帮助企业高效地管理邮件营销活动，与 JINGglobal 营销自动化平台结合，帮助企业优化邮件策略，实现更精细化、自动化的用户管理与触达。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 第三主模块 -->
+      <div class="container">
+        <div class="two-main-content">
+          <div class="two-main-content-title">多语种 AI 智能客服</div>
+          <div class="three-main-content-list is-reverse">
+            <div class="three-main-content-text">可集成在官网生态或 WhatsAPP 社交生态中的 AI 智能客服，帮助企业实时为客户提供咨询与服务支持，确保多语种快速响应，满足多国家不同语言的服务需求，降低人员成本，提高获客留资效率。通过模型训练，不仅让 AI 模拟品牌的语气和风格，为客户提供品牌一致的体验，更能通过大量的业务问询，动态优化 AI 客服的表现。</div>
+            <img class="three-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/11b554b858c2edb803b3-3.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <!-- 第四主模块 -->
+      <div class="container">
+        <div class="two-main-content">
+          <div class="two-main-content-title">WhatsApp 营销赋能销售</div>
+          <div class="three-main-content-list">
+            <div class="three-main-content-text">WhatsApp 作为全球最受欢迎的即时通讯应用之一，用户数量超过 20 亿，覆盖 180多个国家。凭借其高活跃度和广泛覆盖，WhatsApp 已成为品牌在海外与用户沟通、推广产品的绝佳渠道。WhatsApp 营销可以从开发客户、聊单、成交、售后实现全流程跟进；通过销售聊天式营销，保持对话式和个性化营销，能在一定程度上提高销售的温度，提高海外销售的成交率。</div>
+            <img class="three-main-content-img" src="https://www.jingdigital.com/wp-content/uploads/2024/12/e6a0442c02784f812661-3.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
